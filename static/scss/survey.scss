@@ -1,0 +1,352 @@
+@import "../scss/base/mixin";
+
+/* ================== Survey ================== */
+body:has(.section__cont-srvyIntro) {
+  background-color: var(--dt-gray05);
+}
+body:has(.section__cont-srvyList) {
+  background-color: var(--dt-white) !important;
+}
+.survey {
+	/* 기본 브랜드(디폴트) */
+	--brand: var(--dt-primary);
+	/* 연한 배경: fallback -> color-mix 순서 (미지원 브라우저 대비) */
+	--brand-bg: rgba(22, 163, 74, 0.08);
+	--brand-bg: color-mix(in oklab, var(--brand), transparent 95%);
+	/* ---------- Section Body ---------- */
+	.section__cont {
+		display: flex;
+		flex-direction: column;
+		padding-top: 80px;
+		row-gap: 48px;
+		background-color: var(--dt-white);
+		&.section__cont-srvyIntro {
+			background-color: var(--dt-gray05);		
+		}
+		.cont__wrap {
+			&.start-top {
+				@include flexBox();
+				flex-direction: column;
+				row-gap:16px;
+				// background-color: var(--dt-gray05);
+				.intro-logo.img-box { width: 68px; height: 68px; }
+			}
+			.cont__tit-box {
+				@include flexBox();
+				flex-direction: column;
+				.tit {
+					@include fw-6(18px);
+					color: var(--dt-gray16);
+					line-height: var(--dt-lh140);
+				}
+				.sub-tit { @include fw-5(16px); color: var(--dt-gray11); line-height: var(--dt-lh140);}
+			}
+		}
+	}
+
+	/* ---------- Service Card ---------- */
+	.cont__wrap-service {
+		.card.svInform {
+		box-shadow: none;
+		border-radius: 16px;
+		margin-top: 16px;
+		padding: 28px 20px;
+			.img-box {
+				width: 110px;
+				height: unset;
+				margin: 0 auto;
+			}	
+			.card-body { gap: 40px; }
+			.item { flex-direction: column; gap: 6px; }
+			.sub-tit { @include fw-7(18px); color: var(--dt-gray14); line-height: var(--dt-lh140);}
+			.sub-txt { @include fw-5(14px); color: var(--dt-gray11); line-height: var(--dt-lh140); }
+		}
+		.survey-container {
+			.card.svInform {
+				border-radius: 0;
+				padding: 28px 0;
+			}
+			// .survey-header {
+			// 	transition: transform 0.3s ease;
+			// }
+			.survey-content {
+				display: none;
+				transition: transform 0.3s ease;
+			} 
+			&.open {
+				.survey-content {
+					display: block;
+				}
+			}
+		}
+	}
+
+	/* ---------- Flag ---------- */
+	.flag .txt {
+		font-size: 13px;
+	}
+	/* ---------- Question ---------- */
+	.sv-box {
+		@include fw-5(16px);
+		color: var(--dt-gray16);
+		line-height: var(--dt-lh140);
+
+		&.qstn { 
+			&.asterisk {
+				.sv-num {
+					padding-left: 45px;
+					&::before {
+						content: '(필수)';
+						position: absolute;
+						top: -1px; left: 0;
+						@include fw-6(16px);
+						color: var(--brand);      /* ← 포인트 컬러 */
+					}
+				}
+
+				
+			}
+		}
+	}
+	.sv-qstn { @include fw-6(16px); line-height: 1.2;  text-indent: unset; color: var(--dt-black);}
+	.sv-qstnMark {
+		@include fw-7(18px);
+		color: var(--brand);        /* ← 포인트 컬러 */
+	}
+	.sv-num {
+		position: relative;
+		padding-right: unset;
+		@include fw-7(18px);
+		color: var(--brand);
+
+	}
+	/* ---------- Range (Score) ---------- */
+	.rating-wrap { display:flex; flex-direction:column; margin-top:8px; row-gap: 4px;}
+	.rating-box  { 
+		display:flex; align-items:center; flex-direction:column; 
+		
+	
+	}
+
+	/* 컴포넌트 토큰 — ★ 여기서 브랜드를 흘려보냄 */
+	.rating{
+		/* 관리자 입력 */
+		--count: 10;                              /* 3~10 */
+		--gap: clamp(1px, 3vw, 16px);
+		// --edge: clamp(2px, calc(var(--gap) / 2), 10px);
+		--edge: clamp(4px, calc(var(--gap) / 2 + 2px), 12px);
+
+		/* 테마 */
+		--bg: var(--dt-gray02);
+		--fg: var(--dt-gray12);
+		--active: var(--brand);
+		--ring: color-mix(in oklab, var(--brand), transparent 75%);
+		/* 리사이즈 제어 */
+		--capW: 576px;                             /* 이 폭까지만 커짐 */
+		--minDot: 22px;                            /* 점 최소 지름 */
+		--maxDot: 45px;                            /* 점 최대 지름 */
+		/* ✅ 원 지름 계산(갯수/갭 반영, cap 포함) */
+		--dot: calc(
+			(min(100cqw, var(--capW)) - (var(--count) - 1) * var(--gap))
+			/ var(--count)
+		);
+		inline-size: 100%;
+		max-inline-size: 576px; /* 상한(요청사항) */
+		display:grid;
+		grid-template-columns: repeat(var(--count), minmax(0,1fr));
+		gap: var(--gap);
+		container-type: inline-size; /* 숫자 폰트에 cqw 쓰기 위함 */
+	}
+	.rating__item{
+		position:relative; display:grid; place-items:center; padding-block: 2px; cursor:pointer;
+		> input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
+	}
+
+	.rating__dot{
+		width: clamp(var(--minDot), var(--dot), var(--maxDot)); aspect-ratio:1/1; border-radius:50%;
+		background:var(--bg); color:var(--fg);
+		display:grid; place-items:center; font-weight:700;
+		/* 컨테이너 너비와 개수에 비례 → 과대성장 방지용 최대치 포함 */
+		font-size: clamp(12px, calc(clamp(var(--minDot), var(--dot), var(--maxDot)) * 0.38), 20px);
+		transition: transform .12s ease, background-color .12s ease, color .12s ease, box-shadow .12s ease;
+	}
+	@media (hover:hover) and (pointer:fine){
+		.rating__item:hover .rating__dot{ transform:translateY(-1px); outline:2px solid var(--ring); }
+	}
+
+	.rating__item:has(input:checked) .rating__dot,
+	.rating__item > input:checked ~ .rating__dot{
+		background-color: var(--active); color:#fff;
+		box-shadow: 0 0 0 4px color-mix(in oklab, var(--active), transparent 80%);
+	}
+
+	.rating__item > input:focus-visible + .rating__dot{ outline:3px solid var(--ring); }
+
+	.rating__info{
+		--gap: clamp(1px, 3vw, 16px);
+		display:flex; justify-content:space-between; color:var(--dt-gray13);
+		@include fw-5(14px); margin:4px auto 15px; padding: 0 clamp(4px, calc(var(--gap) / 2 + 2px), 12px); inline-size:100%; max-inline-size:576px;
+		> span{ width:50px; min-width:50px; line-height:1.2; @include fw-4(12px); 
+			font-size: clamp(8px,3vw,14px);  }
+		.rating-low{ text-align:left; } .rating-high{ text-align:right; }
+	}
+
+	/* 비활성 */
+	.rating[aria-disabled="true"] .rating__item{ cursor:not-allowed; opacity:.6; }
+
+/* ===== Radio Group ===== */
+.radio-group {
+  display: grid;
+  row-gap: 6px;
+  margin: 0;
+  padding: 0;
+  cursor: unset;
+  margin-top: 4px;
+}
+
+/* 레이블 = 인터랙션 단위 */
+.radio {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+
+  /* 시각적 숨김(접근성 OK) */
+  > input[type="radio"] {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+}
+
+/* 항목 박스(미선택도 라인 유지) */
+.radio__frame {
+  --_pad-x: 10px;
+  --_pad-y: 14px;
+  --_radius: 8px;
+  --line : var(--dt-gray08);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--_pad-y) var(--_pad-x);
+  border: 1.5px solid var(--line);
+  border-radius: var(--_radius);
+  background: #fff;
+  color: var(--ink);
+  transition: background .15s ease, border-color .15s ease, box-shadow .15s ease;
+
+  /* hover 피드백 */
+  .radio:hover & { border-color: #d1d5db; }
+}
+
+/* 왼쪽 원형 컨트롤 */
+.radio__control {
+  position: relative;
+  inline-size: 20px;
+  block-size: 20px;
+  flex: 0 0 20px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;     /* 미선택 라인 */
+  transition: border-color .15s ease;
+
+  /* 안쪽 점 */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%) scale(0);
+    inline-size: 10px;
+    block-size: 10px;
+    border-radius: 50%;
+    background: var(--brand);
+    transition: transform .15s ease;
+  }
+}
+
+/* 텍스트 */
+.radio__text { @include fw-4(15px); /* font-size: clamp(14px, 3.8vw, 15px); */ color: var(--dt-gray11);}
+
+/* 키보드 포커스 링 */
+.radio > input[type="radio"]:focus-visible ~ .radio__frame {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* 선택 상태: 박스 배경+라인 강조, 컨트롤 포인트 표시 */
+.radio > input[type="radio"]:checked ~ .radio__frame {
+  border-color: var(--brand);
+  background: var(--brand-bg);
+  box-shadow: 0 0 0 1px var(--brand) inset;   /* 라인 한 겹 더 */
+}
+.radio > input[type="radio"]:checked ~ .radio__frame .radio__control {
+  border-color: var(--brand);
+}
+.radio > input[type="radio"]:checked ~ .radio__frame .radio__control::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+.radio > input[type="radio"]:checked ~ .radio__frame .radio__text {
+  color: var(--dt-black);
+}
+/* 비활성화 대응(옵션) */
+.radio > input[type="radio"]:disabled ~ .radio__frame {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+/* 모션 최소화(접근성) */
+@media (prefers-reduced-motion: reduce) {
+  .radio__frame,
+  .radio__control,
+  .radio__control::after { transition: none; }
+}
+	textarea {
+	@include fw-5(16px);
+	color: var(--dt-gray16);
+	line-height: 1.2;
+}
+textarea::placeholder {
+	font-family: "Pretendard", system-ui, sans-serif;
+	color: var(--dt-gray11);
+	@include fw-5(16px);
+	line-height: 1.2;
+}
+	/* ---------- Textarea ---------- */
+	.input-control .textarea-box {
+		border: 1.5px solid var(--dt-gray08);
+	}
+	textarea {
+		@include fw-5(16px);
+		color: var(--dt-gray16);
+		line-height: 1.2;
+	}
+	textarea::placeholder {
+		font-family: "Pretendard", system-ui, sans-serif;
+		color: var(--dt-gray11);
+		@include fw-5(16px);
+		line-height: 1.2;
+	}
+
+	/* ---------- Info Columns ---------- */
+	.info-col-wrap {
+		.col { row-gap: 16px; }
+
+		.txt-title { color: var(--dt-gray16); @include fw-6(16px); line-height: 150%; }
+
+		.btn-group {
+		margin-top: 20px;
+		.btn { background-color: var(--dt-gray06); border: 1px solid var(--dt-gray06);
+			.txt { color: var(--dt-gray11); font-size: 14px; }
+		}
+		}
+	}
+
+
+	/* ---------- Etc. ---------- */
+	.txt-sub { .img-box { width: 24px; height: 24px; img { width: 18px; transform: translateY(-1px); } } }
+	.accordion-header { padding: unset; }
+}

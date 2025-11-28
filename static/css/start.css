@@ -1,0 +1,118 @@
+.page-wrapper {
+	background: var(--dt-gray05);
+	height: 100%;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 48px;
+}
+
+.section__cont {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 50px;
+}
+.section__cont.start {
+	padding-top: 80px;
+	row-gap: 48px;
+}
+.section__cont.start .cont__wrap.start-top {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.section__cont.start .cont__wrap.start-top .intro-logo.img-box {
+	width: 68px;
+	height: 68px;
+}
+.section__cont.start .cont__wrap.start-top .con__tit-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 12px;
+}
+.section__cont.start .cont__wrap.start-top .con__tit-box .tit {
+	font-size: 22px;
+	font-weight: 600;
+	color: var(--dt-gray16);
+	line-height: var(--dt-lh150);
+}
+.section__cont.start .cont__wrap .card-group {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-template-rows: max-content;
+	row-gap: 12px;
+}
+.section__cont.start .cont__wrap .card-group .btn-group .btn-md {
+	padding: 10px 12px;
+}
+
+body {
+	background-color: var(--dt-gray05);
+}
+
+.cont__wrap.start {
+	padding: 35px 16px 58px;
+}
+
+.start .inform-wrap {
+	gap: 12px;
+}
+.start .inform-wrap .img-box {
+	width: 68px;
+	height: 68px;
+}
+.start .inform-wrap .tit {
+	font-size: var(--dt-fz22);
+	color: var(--dt-gray16);
+	line-height: var(--dt-lh150);
+}
+.start .card-group {
+	grid-template-columns: 1fr;
+	gap: 12px;
+}
+.start .card, .start .card-body, .start .card-footer {
+	flex-direction: row;
+	align-items: center;
+}
+.start .card, .start .card-body {
+	gap: 10px;
+}
+.start .card {
+	min-height: 88px;
+}
+.start .card .img-box {
+	width: 32px;
+	height: 32px;
+	min-width: 32pxd;
+}
+.start .card .tit {
+	font-size: var(--dt-fz18);
+	line-height: var(--dt-lh120);
+}
+.start .card .txt {
+	line-height: 1;
+}
+.start .card .card-footer {
+	flex: 0 0 auto;
+	margin-top: unset;
+}
+.start .card .btn {
+	padding: 10px;
+}
+.start .card .btn .txt {
+	font-size: var(--dt-fz14);
+	line-height: 1;
+}
+.start .card-body {
+	flex: 1 auto;
+}
+.start .card__text {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}

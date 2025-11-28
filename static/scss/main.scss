@@ -1,0 +1,152 @@
+@import "../scss/base/mixin";
+
+.main {
+	.section__cont:first-child {
+		padding-top: 56px;
+		
+	}
+	&.multiProds {
+		.section__cont:first-child { 
+			padding-top: 101px !important; /* 25.10.22 타화선 조회 셀렉박스 추가 요건으로 헤더 고정*/
+		}
+	}
+
+	.cont__wrap {
+		&.cont__wrap-banner {
+			padding: 10px 20px 0;
+			.swiper {
+				animation: fadeInDown 0.8s;
+			}
+			.swiper-slide {
+				height: auto;
+				.banner {
+					height: 100%;
+				}
+			}
+			.swiper-pagination {
+				position: absolute;
+				bottom: 16px;
+				@include fw-5(12px);
+				text-align: right;
+				padding-right: 18px;
+				.swiper-pagination-fraction {
+					color: var(--dt-gray10);
+				}
+				.swiper-pagination-current{
+					@include fw-5(12px);
+					color: var(--dt-primary);
+				}
+				.swiper-pagination-total {
+					@include fw-5(12px);
+				}
+			}
+		}
+		&.cont__wrap-message {
+			padding: 27px 120px 27px 20px;
+			background-image: url(../images/img/img-hm-home.png);
+			background-position: right 0 bottom -13px;
+			background-repeat: no-repeat;
+			background-size: 146px 146px;
+			.txt {
+				line-height: 1.4;
+			}
+		}
+		&.cont__wrap-category {
+			padding-bottom: 32px;
+		}
+	}
+}
+
+.menu {
+	background-color: var(--dt-gray02);
+	.cont__wrap-freqMenu {
+		.con__tit-box {
+			.ico {
+				background-image: url(../images/icon/ic-chips-flag.svg);
+			}
+		}
+		.txt-head {
+			@include fw-5(14px);
+			color: var(--dt-gray11);
+		}
+	}
+	.card-group {
+		.card {
+			min-height: 136px;
+		}
+	}
+}
+
+// top 버튼
+.btn-top {
+	display: none;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 1;
+}
+
+// 스크롤 제어
+.is-scrolled {
+	.section__cont:has(.cont__wrap-category) {
+		position: sticky;
+		top: 56px;
+		left: 0;
+		background-color: var(--dt-white);
+		box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.04);
+		overflow: hidden;
+		padding-bottom: 0;
+		.cont__wrap {
+			position: relative;
+			padding: 0;
+			&::before {
+				position: absolute;
+				content: "";
+				display: none;
+				width: 24px;
+				height: 52px;
+				top: 0;
+				left: 0;
+				background: linear-gradient(-270deg, #FFF 10%, rgba(255, 255, 255, 0.00) 100%);
+			}
+			&::after {
+				position: absolute;
+				content: "";
+				display: inline-block;
+				width: 24px;
+				height: 52px;
+				top: 0;
+				right: 0;
+				background: linear-gradient(270deg, #FFF 10%, rgba(255, 255, 255, 0.00) 100%);
+			}
+			&.scroll-start {
+				&::before {
+					display: inline-block;
+				}
+			}
+			&.scroll-end {
+				&::before {
+					display: inline-block;
+				}
+				&::after {
+					display: none;
+				}
+			}
+		}
+		.chips-group {
+			flex-wrap: nowrap;
+			border-top: 1px solid var(--dt-gray17);
+			padding: 8px 20px;
+			overflow-x: auto;
+			gap: 4px;
+		}
+	}
+	.btn-top {
+		display: flex;
+	}
+	&.multiProds {
+		.section__cont:has(.cont__wrap-category) {
+			top: 101px; /* 25.10.22 타화선 조회 셀렉박스 추가 요건으로 헤더 고정 */
+		}
+	}
+}

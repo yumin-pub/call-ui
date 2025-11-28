@@ -1,0 +1,102 @@
+@import '../base/mixin.scss';
+
+.chck-group {
+  input[type="checkbox"] {
+    /* input은 숨김 */
+    display: none; 
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0px;
+    padding-inline: 0;
+    padding-block: 0;
+    
+    /* input이 체크되지 않았을 때 */
+    &:not(:checked) + .chck-label{
+      .chck-box {
+        background-color: transparent;  /* 체크되지 않은 상태에서 배경색 */
+      }
+    } 
+
+    /* input이 체크되었을 때 */
+    &:checked + .chck-label {
+      .chck-box {
+        border-color: var(--dt-primary);
+        background-color: var(--dt-primary); /* 체크된 상태에서 배경색 */
+        &::before {
+          opacity: 1;
+        }
+      }  
+    }
+  }
+  .chck-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--dt-gray16);
+    @include fw-5(14px);
+    line-height:16px;
+    .chck-box {
+      position: relative;
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border-radius: 4px;
+      border: 2px solid var(--dt-gray09);
+      transition: background-color 0.3s ease;
+      align-self:baseline;
+      &::before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        top: 50%;
+        left: 50%;
+        width: 16px;
+        height: 16px;
+        transform: translate(-50%, -50%);
+        background-image: url(../images/icon/ic-chckbox-checked.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.3s ease, background-color 0.3s ease;
+      }
+    }
+  }
+  &.is-disabled {
+    pointer-events: none; /* 모든 클릭을 비활성화 */
+    .chck-input {
+      &:checked + .chck-label {   
+        opacity: 0.36;     
+        .chck-box{
+          &::before {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+    .chck-label {
+      pointer-events: none; /* label 클릭 불가 */
+      opacity: 0.36; 
+      .chck-box {
+        cursor: not-allowed; /* 비활성화된 상태에서 커서 변경 */
+        &::before {
+          opacity: 0.6;
+        }
+      }
+    }
+
+  }
+}
+
+// 2배열
+.chckbox-wrap {
+  flex-wrap:wrap;
+  gap:10px 6px;
+  .chck-group {
+    width:calc((100% - 6px) / 2);
+  }
+}
+
+
+

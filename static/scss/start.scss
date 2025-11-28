@@ -1,0 +1,123 @@
+@import "../scss/base/mixin";
+.page-wrapper {
+    background: var(--dt-gray05);
+    height: 100%; 
+    // 높이 설정 문의
+}
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 48px;
+}
+
+.section__cont {
+	display: flex;
+	flex-direction: column;
+    padding-bottom: 50px;
+    &.start {
+        padding-top: 80px;
+        row-gap: 48px;
+        .cont__wrap {
+            &.start-top {
+                @include flexBox();
+                flex-direction: column;
+                .intro-logo {
+                    &.img-box {
+                        width: 68px;
+                        height: 68px;
+                    } 
+                }
+                .con__tit-box {
+                    @include flexBox();
+                    flex-direction: column;
+                    margin-top: 12px;
+                    .tit {
+                        @include fw-6(22px);
+                        color: var(--dt-gray16);
+                        line-height: var(--dt-lh150);
+                    }
+                }
+            }
+            .card-group {
+                @include gridBox(1);
+                row-gap: 12px;
+                .btn-group {
+                    .btn-md {
+                        padding: 10px 12px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+body {
+    background-color: var(--dt-gray05);
+}
+.cont__wrap {
+    &.start {
+        padding: 35px 16px 58px;
+    }
+}
+.start {
+    .inform-wrap {
+        gap: 12px;
+        .img-box {
+            width: 68px;
+            height: 68px;
+        }
+        .tit {
+            font-size: var(--dt-fz22);
+            color: var(--dt-gray16);
+            line-height: var(--dt-lh150);
+        }
+    }
+    .card-group {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .card, .card-body, .card-footer {
+        flex-direction: row;
+        align-items: center;
+    }
+    .card, .card-body {
+        gap: 10px;
+    }
+    .card {
+        // gap: 10px;
+        min-height: 88px;
+        .img-box {
+            width: 32px;
+            height: 32px;
+            min-width: 32pxd;
+        }
+        .tit {
+            font-size: var(--dt-fz18);
+            line-height: var(--dt-lh120);
+        }
+        .txt {
+            line-height: 1;
+        }
+        .card-footer {
+            flex: 0 0 auto;
+            margin-top: unset;
+        }
+        .btn {
+            padding: 10px;
+            .txt {
+                font-size: var(--dt-fz14);
+                line-height: 1;
+            }
+        }
+    }
+    .card-body {
+        // gap: 10px;
+        flex: 1 auto;
+    }
+    .card__text {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+}

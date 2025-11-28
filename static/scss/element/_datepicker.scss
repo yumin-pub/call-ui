@@ -1,0 +1,548 @@
+@import '../base/mixin';
+
+
+// datepicker 정렬
+.vanillajs-datepicker {		
+	.datepicker {
+		width: 100%;
+	}
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	margin: auto;
+	gap: 4px;
+	.datepicker-picker {
+		background-color: transparent;
+		// 켈린더 정렬
+		align-items: center;
+		min-width: 220px;
+		max-width: 320px;
+		margin: auto;
+		gap: 12px;
+	}
+}
+
+// range datepicker 강제 active
+.range-datepicker {
+	.vanillajs-datepicker {
+		position: relative;
+		min-height: 463px;
+		padding-top: 12px;
+	}
+	.datepicker-dropdown {
+		&:not(.active) {
+			display: flex !important;
+		}
+	}
+	input[name="start"] + .datepicker-dropdown {
+		display: none !important;
+	}
+	input[name="start"].in-edit + .datepicker-dropdown {
+		display: none !important;
+	}
+	// input[name="end"] + .datepicker-dropdown {
+	// 	display: flex !important;
+	// }
+	// input[name="end"].in-edit + .datepicker-dropdown {
+	// 	display: none !important;
+	// }
+	.datepicker-dropdown {
+		// 켈린더 고정 위치
+		left: 50% !important;
+		top: 0 !important;
+		// bottom: 50% !important;
+		transform: translate(-50%, 78px) !important;
+		z-index: unset;
+		.datepicker-picker {
+			box-shadow: none;
+		}
+	}
+	// 입력 박스
+	.datepicker__input-wrap {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		column-gap: 12px;
+		background-color: var(--dt-gray02);
+		border-radius: 8px;
+		padding: 14px 16px;
+		// @include fw-6(18px);
+		// line-height: 1.5;
+		// color: var(--dt-gray11);
+	}
+	// 입력 영역 + 유닛
+	.datePicker__input-box {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: center;
+		min-width: 86px;
+		max-width: 124px;
+		&:has(.hyphen) {
+			max-width: calc(124px + 24px);
+		}		
+		// 입력 영역
+		.input-field {
+			flex: 1;
+			@include fw-6(14px);
+			line-height: 1.2;
+			color: var(--dt-gray16);
+			text-align: center;
+			&.datepicker-input {
+				&.in-edit {
+					border-color: transparent;
+					&:active, &:focus {
+						box-shadow: none;
+					}
+				}
+			}
+			&::placeholder {
+				@include fw-5(14px);
+				line-height: 1.2;
+				color: var(--dt-gray16);
+			}
+		}
+		// 유닛
+		.input-field-unit {
+			flex: 0 auto;
+			@include fw-5(14px);
+			line-height: 1.5;
+			color: var(--dt-gray11);
+			&.hyphen {
+				@include fw-6(18px);
+				line-height: 1.2;
+				padding-right: 12px;
+			}
+		}
+		
+	}
+}
+
+// vanillajs-datepicker-1.3.4 커스텀
+.datepicker {
+	.datepicker-main {
+		padding: 0;
+	}
+	.datepicker-view {
+		width: auto;
+		justify-content: center;
+	}
+	.days-of-week, .datepicker-grid  {
+		justify-content: center;
+	}
+}
+.datepicker-title {
+	background-color: var(--dt-white);
+	box-shadow: none;
+	@include fw-6(16px);
+	line-height: 1.5;
+	text-align: center;
+}
+.datepicker-controls {
+	.button {
+		height: auto;
+		line-height: 1.2;
+		color: var(--dt-gray16);
+		vertical-align: middle;
+		box-shadow: none;
+		margin: 0;
+		padding: 0;
+		&:hover {
+			border-color: transparent;
+			color: var(--dt-gray16);
+		}
+		&:focus {
+			border-color: transparent;
+			color: var(--dt-gray16);
+			&:not(:active) {
+				box-shadow: none;
+			}
+		}
+		&:active {
+			border-color: transparent;
+			color: var(--dt-gray16);
+		}
+	}
+}
+// 켈린더 푸터 
+.datepicker-footer {
+	width: 100%;
+	background-color: var(--dt-white);
+	box-shadow: none;
+	.datepicker-controls {
+		width: 100%;
+		.button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			align-items: center;
+			background-color: var(--dt-gray03);
+			border: 1px solid var(--dt-gray03);
+			border-radius: 4px;
+			@include fw-6(12px);
+			line-height: 1.2;
+			color: var(--dt-gray11);
+			padding: 9px 12px 8px;
+		}
+	}
+}
+// 켈린더 헤더 
+.datepicker-header {
+	.datepicker-controls {
+		width: 203px;
+		justify-content: center;
+		align-items: center;
+		background-color: transparent;
+		padding: 0;
+		.button {
+			height: auto;
+			background-color: transparent;
+			border-color: transparent;
+			@include fw-7(20px);
+			line-height: 1.2;
+			color: var(--dt-gray16);
+			&:hover {
+				background-color: transparent;
+			}
+			&:active {
+				background-color: transparent;
+			}
+			&.next-button, &.prev-button {
+				color: transparent;
+				font-size: 0;
+				flex: 0 0 24px;
+				width: 24px;
+				height: 24px;
+				background-image: url(../images/icon/ic-btn-arrow-right-lg.svg);
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 100%;
+				&:hover, &:focus, &:active {
+					background-color: transparent;
+					box-shadow: none;
+					border-color: transparent;
+					color: transparent;
+				}
+				&[class~="disabled"] {
+					opacity: 0;
+				}
+			}
+			&.next-button {
+				transform: rotate(180deg);
+			}
+			&.view-switch {
+				-webkit-tap-highlight-color: transparent;
+				cursor: default;
+			}
+		}
+	}
+}
+
+.datepicker {
+	justify-content: flex-start;
+	align-items: center;
+	--dp-size: 16px;
+	.datepicker-cell {
+		position: relative;
+		background-color: transparent !important;
+		color: var(--dt-gray14);
+		&::after {
+			display: inline-block;
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			border-radius: 4.5em;
+			width: calc(100% - 4px);
+			height: calc(100% - 4px);
+			background-color: transparent;
+			border-color: transparent;
+			border-style: solid;
+			border-width: 1px;
+			z-index:-1;
+		}
+		&:not(.day) {
+			border-radius: 4.5em;
+			font-size: var(--dp-size);
+			font-weight: 600;
+			line-height: 1.5;
+			flex-basis: 4.5em;
+			height: 4.5em;
+			&::after {
+				border-width: 2px;
+			}
+		}
+		&.selected, &.selected:hover {
+			color: var(--dt-primary);
+			font-weight: 600;
+			&::after {
+				background-color: var(--dt-white);
+				border-color: var(--dt-primary);
+			}
+		}
+		&.disabled {
+			background-color: var(--dt-white);
+			opacity: 0.4;
+		} 
+		&.next, &.prev {
+			&:not(.disabled) {
+				color: var(--dt-gray14);
+				opacity: 0.4;
+			}
+		}
+		&.next, &.prev {
+			&.selected {
+				color: var(--dt-primary);
+				&::after {
+					background-color: var(--dt-white);
+					border-color: var(--dt-primary);
+				}
+			}
+		}
+		&.highlighted {
+			&:not(.selected) {
+				&:not(.range) {
+					&:not(.today) {
+						&::after {
+							background-color: transparent;
+							border-color: transparent;
+						}
+						&:not(.disabled):hover {
+							&::after {
+								background-color: transparent;
+								border-color: transparent;
+							}
+						}
+						&.focused {
+							&::after {
+								background-color: transparent;
+								border-color: transparent;
+							}
+						}
+					}
+				}
+			}
+		}
+		&.today {
+			&:not(.selected) {
+				&:not(.disabled) {
+					&:not(.range) {color: var(--dt-primary); }					
+					// &::after {
+					// 	background-color: var(--dt-gray03);
+					// 	border-color: var(--dt-gray03);
+					// }
+				}
+				&::after { // range 선택시 투데이의 회색박스를 유지하기 위한 코드
+					background-color: var(--dt-gray03);
+					border-color: var(--dt-gray03);
+					
+				}
+				color: var(--dt-gray14);
+			}
+			&.focused {
+				&:not(.selected) {
+					&::after {
+						background-color: var(--dt-gray03);
+						border-color: var(--dt-gray03);
+					}
+				}
+			}
+			&::before { // 오늘 버블툴팁
+				display: inline-block;
+				width: 33px;
+				height: 22px;
+				vertical-align: top;
+				content: "오늘";
+				@include fw-6(9px);
+				line-height: 18px;
+				color: var(--dt-primary);
+				text-align: center;
+				background-image: url(../images/img/datepicker-today.svg);				
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 100%;
+				// background-color: var(--dt-white);
+				// border-color: var(--dt-primary);
+				// border-radius: 14px;
+				// border-width: 1px;
+				// border-style: solid;
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translate(-50%, -40%);
+				z-index: 1;
+
+			}
+		}
+		&.range-end, &.range-start {
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 100%;
+			&:not(.selected) {
+				color: var(--dt-primary);
+				&::after {
+					background-color: var(--dt-white);
+					border-color: var(--dt-primary);
+				}
+			}
+			&.focused {
+				&:not(.selected) {
+					color: var(--dt-primary);
+				}
+			}
+		}
+		&.range-start {
+			&:not(.range-end) {
+				background-image: url(../images/img/range-start_bg.svg);
+				&::after {
+					border-radius: 4.5em;
+				}
+			}
+		}
+		&.range-end {			
+			&:not(.range-start) {
+				background-image: url(../images/img/range-end_bg.svg);
+				&::after {
+					border-radius: 4.5em;
+				}
+			}
+		}
+		&.range {
+			position: relative;
+			&::after {
+				background-color: #F9CCE6;
+				border-color: #F9CCE6;
+				border-radius: 0;
+				width: calc(100% + 0px);
+				height: 1.85em;
+				z-index: -2;
+			}
+			
+			&:not(.disabled) {
+				&:not(.focused) {
+					&:not(.today) {
+						&:hover {
+							&::after {
+								background-color: #F9CCE6;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	.days {		
+		.dow, .datepicker-cell {
+			@include fw-6(var(--dp-size));
+			line-height: 1.5;
+			// color: var(--dt-gray14);
+			flex-basis: 2.75em;
+			height: 2.75em;
+		}
+		.dow {
+			@include fw-7(var(--dp-size));
+			color: var(--dt-gray11);
+		}
+		
+	}
+	.week {
+		color: var(--dt-gray16);
+	}
+}
+
+// inline
+.datepicker-inline {
+	.datepicker-cell {
+		z-index: 0;
+		&::after {
+			z-index:-1;
+		}
+		&.today {
+			&:not(.selected) {
+				z-index:0;
+				&::after { 
+					z-index:-1;
+				}
+			}
+		}
+	}
+}
+// range
+.datepicker-dropdown { 
+	.datepicker-cell {
+		z-index: 0;
+		&::after {
+			z-index:-1;
+		}
+		&.today {
+			&:not(.selected) {
+				z-index:0;
+				&::after { 
+					z-index:-1;
+				}
+			}
+		}
+	}
+}
+
+
+
+@media screen and (min-width: 360px) {
+	.vanillajs-datepicker {
+		.datepicker-picker {
+			max-width: 320px;
+		}
+	}
+	.resetDate {
+		max-width: 320px;
+	}
+}
+@media screen and (max-width: 359px) {
+	.vanillajs-datepicker {
+		.datepicker-picker {
+			max-width: 220px;
+		}
+	}
+	.resetDate {
+		max-width: 220px;
+	}
+	.range-datepicker .datepicker-dropdown {
+		transform: translate(-50%, 108px) !important;
+	}
+}
+
+@media screen and (min-width: 360px) {
+	.datepicker {
+		--dp-size: 16px;
+	}
+}
+@media screen and (max-width: 359px) {
+	.datepicker {
+		--dp-size: 12px;
+		.days .dow, .days .datepicker-cell {
+			flex-basis: 2.834em;
+			height: 2.834em;
+		}
+		.datepicker-cell {
+			&:not(.day) {
+				--dp-size: 16px;
+				line-height: 1.2;
+				flex-basis: 4.5em;
+				height: 4.5em;
+			}
+			&.range::after {
+				height: 2em;
+			}
+		}
+	}
+	
+}
+
+
+

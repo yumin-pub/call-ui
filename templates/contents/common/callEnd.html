@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<!-- Set the viewport. -->
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1.0">
+	<!-- Disable automatic phone number detection. -->
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<title>call ui</title>
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../../../static/css/common.css">
+	<link rel="stylesheet" type="text/css" href="../../../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../../static/css/callEnd.css">
+
+	<!-- Scripts -->
+</head>
+
+<body>
+<div class="page-wrapper">
+	<!-- container -->
+	<div class="container">
+		<div class="section__cont">
+			<div class="cont__wrap callEnd">
+				<div class="img-box">
+					<img src="../../../static/images/img/logo-md.svg">
+				</div>
+			</div>
+			<div class="cont__wrap">
+				<div class="device-box">
+					<div class="device-txt">
+						핸드폰 화면 <span class="color-prim">상단</span>을 아래로 내리시고,<br>
+						<span class="color-prim">키패드(전화) 입력 화면으로 이동</span>하신 후<br>
+						음성 ARS 안내에 따라 서비스를 이용해 주세요. 
+					</div>
+					<p class="device-tit">
+						<안드로이드>
+					</p>
+					<div class="device-wrap aos">
+						<div class="finger-tip"></div>
+					</div>				
+					<!-- <div class="scrolled">
+					</div> -->
+				</div>
+				<div class="device-box">
+					<div class="device-txt">
+						<span class="color-prim">아이폰</span>인 경우<br>
+						상단<span class="color-prim"> 통화중 상태</span>를<span class="color-prim"> 선택</span>해 주세요.
+					</div>
+					<p class="device-tit">
+						<아이폰>
+					</p>
+					<div class="device-wrap ios">
+						<div class="finger-tip"></div>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //container -->
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			// 화면 아무 곳이나 누르면 메인으로 이동
+			document.addEventListener('click', () => {
+			window.location.href = '../business/main/main.html';
+			});
+		});
+	</script>
+</div>
+
+</body>
+
+</html>

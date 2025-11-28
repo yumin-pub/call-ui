@@ -1,0 +1,204 @@
+// ============= mixin 모음 ============= 
+//말줄임 처리
+@mixin ellipsis($line: 1) {
+    @if ($line == 1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } @else {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word; // 공백 없을때 글자 잘림 방지
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $line;
+    }
+}
+
+
+//font-style
+// @include fw-7($fc: 16px);
+// font-weight
+@mixin fw-7($fs: 16px) {
+    font-size: $fs;
+    font-weight: 700;
+}
+@mixin fw-6($fs: 16px) {
+    font-size: $fs;
+    font-weight: 600;
+}
+@mixin fw-5($fs: 16px) {
+    font-size: $fs;
+    font-weight: 500;
+}
+@mixin fw-4($fs: 16px) {
+    font-size: $fs;
+    font-weight: 400;
+}
+
+// font-size
+@mixin fz($fz: 16px) {
+    font-size: $fz;
+}
+
+//flex-box
+//  @include flexBox(start, end) 이런식으로 대입
+$flex-map: (
+    start: flex-start,
+    end: flex-end,
+    between: space-between,
+    around: space-around,
+    stretch: stretch,
+    center: center,
+);
+
+@function _get-flex-value($key) {
+    @return map-get($flex-map, $key);
+}
+
+@mixin flexBox($jc: center, $ai: center) {
+    display: flex;
+    align-items: _get-flex-value($ai);
+    justify-content: _get-flex-value($jc);
+}
+
+@mixin flexRow() {
+    display:flex;
+    flex-direction:row;
+}
+@mixin flexColum() {
+    display:flex;
+    flex-direction:column;
+}
+@mixin ico(){
+    display:inline-block;
+    font-size:0;
+    background:no-repeat center / cover;
+}
+
+//grid-box
+@mixin gridBox($num:3) {
+    display: grid;
+    grid-template-columns: repeat($num, 1fr);
+    grid-template-rows: max-content;
+}
+
+// btn-style
+// btn 선언 방식
+// btn-형태
+// eg)btn-sol, btn-line
+@mixin btn-sol ($py:16.5px, $px:16.5px) {
+    background-color: var(--dt-primary);
+    border: 1px solid var(--dt-primary);
+    padding: $py $px;
+}
+@mixin btn-line ($py:16.5px, $px:16.5px) {
+    color: var(--dt-primary);
+    background-color: transparent;
+    border: 1px solid var(--dt-primary);
+    border-radius: 4px;
+    padding: $py $px;
+    text-align: center;
+}
+
+@mixin btnPill-02 ($left:76px) {
+    padding: 10px 38px 10px 20px;
+    color: var(--d-fc1);
+    border-radius: 2.5rem;
+    border: 1px solid var(--d-lc3);
+    background-color: var(--d-bg2);
+    background-image: url(../img/main_icon/icon_arrow_right.svg);
+    background-repeat: no-repeat;
+    background-position: $left center;
+    background-size: 0.875rem 0.875rem;
+}
+@mixin btnPill-03 ($right:19px) {
+    padding: 10px 38px 10px 20px;
+    color: var(--d-fc1);
+    border-radius: 2.5rem;
+    border: 1px solid var(--d-lc3);
+    background-color: var(--d-bg2);
+    background-image: url(../img/main_icon/icon_arrow_right+up.svg);
+    background-repeat: no-repeat;
+    background-position: right $right center;
+    background-size: 0.875rem 0.875rem;
+}
+@mixin btnPill-04 ($left:20px) {
+    padding: 14px 20px 14px 50px;
+    text-decoration: underline;
+    border-radius: 2.5rem;
+    border: 1px solid var(--d-lc3);
+    background-color: var(--d-bg1);
+    background-image: url(../img/icon/icon-board-detail-file.svg);
+    background-repeat: no-repeat;
+    background-position: left $left center;
+    background-size: 1.5rem 1.5rem;
+}
+@mixin btnPill-05 ($p-y:24px, $p-x:45px, $radius:6.25rem) {
+    padding: $p-y $p-x;
+    color: var(--d-bg2);
+    border-radius: $radius;
+    background-color: var(--d-primary1);
+}
+@mixin btnWeb ($left:55px) {
+    padding: 0px 26px 0px 0;
+    background-image: url(../img/icon/icon-goWeb.svg);
+    background-repeat: no-repeat;
+    background-position: left $left top 3px;
+}
+@mixin btnCircle () {
+    // padding: 0px 26px 0px 0;
+    background-image: url(../img/icon/icon-btn-small-circle.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+@mixin btnSubmit01 ($bg:var(--d-primary1), $fc:var(--d-bg2)) {
+    padding: 18px 24px;
+    border-radius: 0.9375rem;
+    @include pre-5(1.125rem, 1.75rem);
+    background-color: $bg;
+    color: $fc;
+}
+@mixin btnSubmit02 ($img:url(../img/icon/icon-board-edit.svg), $left:83.5px) {
+    padding: 18px 68.5px 18px 36.5px;
+    border-radius: 0.9375rem;
+    @include pre-5(1.125rem, 1.75rem);
+    background-color: var(--d-bg2);
+    color: var(--d-fc1);
+    background-image: $img;
+    background-repeat: no-repeat;
+    background-position: left $left center;
+}
+@mixin boardCate ($bg:var(--d-badge1)) {
+    border-radius: 0.25rem;
+    padding: 10px 12px;
+    @include pre-5(1rem, 1.5rem);
+    background-color: $bg;
+    color: var(--d-bg2);
+}
+
+@mixin boardBadge ($bg:var(--d-primary1), $fc:var(--d-bg2)) {
+    padding: 5px 8px;
+    @include pre-5(0.9375rem, 1.5rem);
+    background-color: $bg;
+    color: $fc;
+}
+// border
+@mixin border ($color:var(--d-lc1)) {
+    border: 1px solid $color;
+    // border: 1px solid transparent;
+}
+
+// transition
+@mixin hoverTrans () {
+    transition: all .2s ease;
+}
+
+// box-shadow
+@mixin boxShadow   ($x:0, 
+                    $y:3px, 
+                    $blur:20px, 
+                    $spread:10px, 
+                    $color:rgba(0, 0, 0, 0.03)) {
+    box-shadow: $x $y $blur $spread $color 
+}

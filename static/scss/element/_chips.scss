@@ -1,0 +1,615 @@
+@import '../base/mixin';
+.chips-group {
+	@include flexBox();
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 8px;
+}
+.chips-bank-wrap {
+	&:has(.list-chipsbank:only-child,.list-chipsbank:nth-child(1):nth-last-child(2)) {
+		justify-content:center;
+	}
+	@include flexRow;
+	flex-wrap:wrap;
+	justify-content:flex-start;
+	align-items:center;
+	gap:8px;
+	li {
+		min-width: 100px;
+		width:calc((100% - 16px) / 3);
+
+		// width:31.3333%; 
+		text-align:center;
+		// @media screen and (max-width:359px) {
+		// 	width:48%;
+		// }
+	}
+}
+
+// bank-col 세로형 은행명 박스 48px
+.chips-bank-col {
+	display:inline-block;
+	max-width:100px;
+	height:100px;
+	padding-top:10px;
+	padding-bottom:4px;
+	border-radius: 4px;
+	&:active {
+		box-shadow: inset 0 0 0 300px rgba(0, 0, 0, 0.12);
+		width:100%;
+	}
+
+	// .img-box { 은행아이콘 : img태그 버전 : 삭제금지
+	// 	display:block;
+	// 	margin:0 auto 5px;
+	// 	width:48px;
+	// 	height:48px;
+	// 	border-radius:50%;
+	// }
+
+	.ico-bank { /* 은행아이콘 : bg 버전 */
+		display:block;
+		margin:0 auto 5px;
+		width:48px;
+		height:48px;
+		background-image: url(../images/icon/ic-bank/ic-48-default.png);
+
+		&.ibk {
+			background-image: url(../images/icon/ic-bank/ic-48-ibk.png);
+		}
+		&.kb {
+			background-image: url(../images/icon/ic-bank/ic-48-kb.png);
+		}
+		&.hana {
+			background-image: url(../images/icon/ic-bank/ic-48-hana.png);
+		}
+		&.nh {
+			background-image: url(../images/icon/ic-bank/ic-48-nh.png);
+		}
+		&.woori {
+			background-image: url(../images/icon/ic-bank/ic-48-woori.png);
+		}
+		&.sc {
+			background-image: url(../images/icon/ic-bank/ic-48-sc.png);
+		}
+		&.citi {
+			background-image: url(../images/icon/ic-bank/ic-48-citi.png);
+		}
+		&.daegu {
+			background-image: url(../images/icon/ic-bank/ic-48-daegu.png);
+		}
+		&.bnk {
+			background-image: url(../images/icon/ic-bank/ic-48-bnk.png);
+		}
+		&.kj {
+			background-image: url(../images/icon/ic-bank/ic-48-kj.png);
+		}
+		&.post {
+			background-image: url(../images/icon/ic-bank/ic-48-post.png);
+		}
+		&.shinhan {
+			background-image: url(../images/icon/ic-bank/ic-48-shinhan.png);
+		}
+		
+		&.kbank {
+			background-image: url(../images/icon/ic-bank/ic-48-kbank.png);
+		}
+		&.kdb{ /* 한국산업은행 */
+			background-image: url(../images/icon/ic-bank/ic-48-kdb.png);
+		}
+		&.toss{
+			background-image: url(../images/icon/ic-bank/ic-48-toss.png);
+		}
+		&.kko{/* 카카오 */
+			background-image: url(../images/icon/ic-bank/ic-48-kko.png);
+		}
+		&.shinhyup{/* 신협 */
+			background-image: url(../images/icon/ic-bank/ic-48-shinhyup.png);
+		}
+		&.suhyup{ /* 수협 */
+			background-image: url(../images/icon/ic-bank/ic-48-suhyup.png);
+		}
+		&.jeju {}
+
+		&.dbfi{} /* DB금융투자 */
+		&.hsbc{}
+		&.jpm{} /* jp모건 */
+		&.sk{}
+		&.kyobo{}
+		&.daishin{}
+		&.doich{}
+		&.meritz{}
+		&.mirae{}
+		&.america{} /* 뱅크오브아메리카 */
+		&.bookook{}
+		&.sanlim{}
+		&.samsung{}
+		&.saemaeul{}
+		&.shinyoung{}
+		&.yuanta{}
+		&.eugenefn{}
+		&.ebest{}
+		&.fsb{} /* 저축은행 */
+		&.capefn{} /* 케이프투자증권 */
+		&.kiwoom {}
+		&.imfnsec {} /* 하이투자증권 */
+		&.koreaIs{} /* 한국투자증권 */
+		&.hanhwa {}
+		&.hyundai {}/* 현대차증권 */
+
+	}
+
+	.txt {
+		@include flexColum;
+		justify-content:center;
+		width: 90px;
+		max-width:90px;
+		margin:auto;
+		min-height:34px;
+		max-height:34px;
+		color: var(--dt-gray16);
+		@include fw-5(14px);
+		line-height:16px;
+		text-align:center;
+		word-break:break-all;
+		overflow:hidden;
+	}
+}
+
+.chips {
+	display: inline-flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	border: 1px solid var(--dt-gray12);
+	background-color: var(--dt-white);
+	border-radius: 18px;
+	padding: 7px 12px;
+
+	.txt {
+		font-size: 12px;
+		font-weight: 600;
+		text-align: left;
+		line-height: 120%;
+		color: var(--dt-gray12);
+	}
+	.icon {
+		width: 16px;
+		min-width: 16px;
+		height: 16px;
+	}
+	.arrow {
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		background-image: url(../images/icon/ic-chips-arrow-black.svg);
+		background-size: 24px 24px;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+	// chips: select - date (날짜)
+	&.chips-date {
+		border: none;
+		background-color: var(--dt-gray18);
+		padding: 6px 6px 6px 16px; 
+		.txt {
+			@include fz(18px);
+			white-space: nowrap;
+			display: flex;
+			> *{
+				flex: 1 50%;
+				min-width: 42px;
+				text-align: right;
+			}
+		}
+		&:active {
+			box-shadow: inset 0 0 0 300px rgba(0, 0, 0, 0.12);
+		}
+		&.is-disabled {
+			box-shadow: inset 0 0 0 300px rgba(255, 255, 255, 0.6);
+			.txt, .arrow {
+				opacity: 0.6;
+			}
+		}
+	}
+
+	// chips: select - all (접힘/펼침)
+	&.chips-all {
+		min-height: 35px;
+		background-color: var(--dt-white);
+		border: 1px solid var(--dt-gray08);
+		padding: 4px 8px 4px 12px;
+		.txt {
+			@include fz(14px);
+		}
+		.arrow {
+			background-image: url(../images/icon/ic-chips-arrow-gray.svg);
+		}
+		&:active, &.is-selected {
+			.arrow {
+				transform: rotate(-180deg);
+			}
+		}
+		&.is-disabled {
+			box-shadow: inset 0 0 0 300px rgba(255, 255, 255, 0.6);
+			.txt {
+				opacity: 0.6;
+			}
+			.arrow {
+				transform: rotate(-180deg);
+				opacity: 0.6;
+			}
+		}
+	}
+
+	// chips: 홈 - menu (텍스트 칩)
+	&.chips-menu {
+		min-height: 35px;
+		border: 1px solid rgba(24, 26, 27, 0.04);
+		background-color: var(--dt-gray03);
+		padding: 8px 12px;
+		gap: 4px; 
+		.txt {
+			@include fw-5(14px);
+			// color: var();
+			white-space: nowrap;
+		}
+		// &:active {
+		// 	border-color: transparent;
+		// 	background-color: var(--dt-gray13);
+		// 	box-shadow: inset 0 0 0 300px rgba(255, 255, 255, 0.12);
+		// 	.txt {
+		// 		color: var(--dt-white);
+		// 	}
+		// }
+		&.is-selected {
+			background-color: var(--dt-gray13);
+			.txt {
+				font-weight: 600;
+				color: var(--dt-white); 
+			}
+		}
+		&.chips-more {
+			width: 35px;
+			padding: 8px;
+			.arrow {
+				width: 16px;
+				height: 16px;
+				background-image: url(../images/icon/ic-chips-arrow-sm.svg);
+				background-size: 16px 16px;
+			}
+			&.is-selected {
+				background-color: var(--dt-gray03);
+				.arrow {
+					transform: rotate(-180deg);
+				}
+			}
+		}
+	}
+
+	// chips: 상세 - bank (은행명 박스)
+	&.chips-bank {
+		max-width: 311px;
+		min-height: 33px;
+		flex-wrap: nowrap;
+		align-items: flex-start;
+		border-color: transparent;
+		border-radius: 4px; 
+		background-color: var(--dt-gray05);
+		gap: 4px;
+		.icon {/* 은행아이콘 : img태그 버전 */
+			width: 16px;
+			height: 16px;
+		}
+
+		.txt {
+			@include fz(14px);
+			color: var(--dt-gray16);
+			line-height:110%;
+		}
+		&:active {
+			box-shadow: inset 0 0 0 300px rgba(0, 0, 0, 0.12);
+		}
+		&.is-selected {
+			background-color: var(--dt-gray07);
+		}
+	}
+
+	//chips: neutral
+	&.neutral { 
+		padding:9px 12px;
+		@include fw-6(12px);
+		color:var(--dt-gray12);
+		border:1px solid var(--dt-gray09);
+		border-radius:4px;
+	}
+
+	// chips: 상세 - refresh (새로고침 박스)
+	&.chips-refresh {
+		width: 142px;
+		min-height: 36px;
+		border: 1px solid var(--dt-gray08);
+		background-color: var(--dt-white);
+		padding: 4px 10px 4px 16px;
+		gap: 10px;
+		.time {
+			@include fz(12px);
+			color: var(--dt-gray11);
+		}
+		.line {
+			width: 1px;
+			height: 10px;
+			background-color: var(--dt-gray09);
+		}
+		.text-box {
+			display: inline-flex;
+			flex-direction: row;
+			align-items: center;
+			flex-wrap: nowrap;
+			.txt {
+				@include fz(12px);
+				color: var(--dt-gray11);
+				white-space: nowrap;
+			}
+			.icon {
+				width: 18px;
+				height: 18px;
+				background-image: url(../images/icon/ic-chips-refresh.svg);
+				background-size: 18px 18px;
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+		}
+		&:active {
+			box-shadow: inset 0 0 0 300px rgba(0, 0, 0, 0.12);
+		}
+	}
+
+	// chips: 상세 - other (tag)
+	&.chips-tag {
+		min-height: 28px;
+		border-color: var(--dt-gray08);
+		background-color: var(--dt-white);
+		padding: 3px 12px;
+		.txt {
+			@include fw-5(12px);
+			color: var(--dt-gray13);
+			&.txt-2nd {
+				display: flex;
+				justify-content: center;
+				position: relative;
+				padding-right: 13px;
+				font-size: 14px;
+				font-weight: 300;
+				&::after {
+					content: 'nd';
+					display: inline-block;
+					position: absolute;
+					top: -2px;
+					left: 8px;
+					font-size: 11px;
+					width: fit-content;
+				}
+			}
+			&.txt-3nd {
+				display: flex;
+				justify-content: center;
+				position: relative;
+				padding-right: 13px;
+				font-size: 14px;
+				font-weight: 300;
+				&::after {
+					content: 'nd';
+					display: inline-block;
+					position: absolute;
+					top: 2px;
+					left: 8px;
+					font-size: 11px;
+					width: fit-content;
+				}
+			}
+			&.txt-4nd {
+				display: flex;
+				justify-content: center;
+				position: relative;
+				padding-right: 13px;
+				font-size: 14px;
+				font-weight: 300;
+				&::after {
+					content: 'nd';
+					display: inline-block;
+					position: absolute;
+					top: 1px;
+					left: 8px;
+					font-size: 11px;
+					width: fit-content;
+				}
+			}
+		}
+		&.primary {
+			border-color: var(--dt-primary);
+			.txt {
+				color: var(--dt-primary);
+			}
+		}
+		
+		// chips-tag-sm
+		&.tag-sm {
+			min-height: 22px;
+			border: none;
+			background-color: var(--dt-gray08);
+		}
+
+		// chips-tag-lg
+		&.tag-lg {
+			.txt {
+				@include fz(14px);
+			}
+			&.primary-bg {
+				border-color: var(--dt-primary);
+				background-color: rgba(227, 0, 132, 0.12);
+				.txt {
+					color: var(--dt-primary);
+				}
+			}
+		}
+	}
+	&.w-56 {
+		width: 56px;
+		min-width: 56px;
+		justify-content: center;
+		padding: 3px 10px;
+		margin-left: auto;
+	}
+}
+
+// flag
+.flag {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	width: fit-content;
+	min-height: 22px;
+	background-color: var(--dt-gray10);
+	padding: 3px 6px;
+	border-radius: 4px;
+	border: 1px solid var(--dt-gray10);
+	.txt {
+		color: var(--dt-white);
+		text-align: center;
+		font-size: 11px;
+		font-weight: 500;
+		line-height: 120%;
+	}
+	&.primary {
+		border-color: var(--dt-primary);
+		background-color: var(--dt-primary);
+	}
+	&.dangu {
+		border-color: var(--dt-uplus);
+		background-color: var(--dt-uplus);
+	}
+	&.success {
+		border-color: transparent;
+		background-color: rgba(0, 170, 2, 0.1);
+		.txt {
+			color: var(--dt-success);
+		}
+	}
+	&.error {
+		border-color: transparent;
+		background-color: rgba(226, 42, 33, 0.1);
+		.txt {
+			color: var(--dt-error);
+		}
+	}
+	&.flag-line {
+		background-color: transparent;
+		.txt {
+			color: var(--dt-gray10);
+		}
+		&.primary {
+			border-color: var(--dt-primary);
+			.txt {
+				color: var(--dt-primary);
+			}
+		}
+		&.dangu {
+			border-color: var(--dt-uplus);
+			.txt {
+				color: var(--dt-uplus);
+			}
+		}
+	}
+	&.flag-recent {
+		border: 1px solid var(--dt-gray17);
+		background-color: var(--dt-gray17);
+		.txt {
+			@include fw-5(12px);
+			color: var(--dt-gray12);
+		}
+	}
+	&.flag-etc {
+		min-height: 26px;
+		border: 1px solid var(--dt-gray02);
+		background-color: var(--dt-gray02);
+		padding: 4px 8px;
+		.txt {
+			@include fw-5(12px);
+			color: var(--dt-gray11);
+		}
+	}
+}
+
+
+// badge
+.badge {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid var(--dt-gray10);
+	background-color: var(--dt-gray10);
+	gap: 4px;
+	.txt {
+		font-size: 12px;
+		font-weight: 600;
+		line-height: 120%;
+		color: var(--dt-white);
+	}
+	.icon {
+		width: 18px;
+		min-width: 18px;
+		height: 18px;
+	}
+	&.badge-round {
+		min-width: 26px;
+		max-width:max-content;
+		min-height: 26px;
+		border-radius: 27.78vw;
+		border: 1px solid var(--dt-gray08);
+		background-color: var(--dt-gray08);
+		.txt {
+			padding:0 8px;
+			line-height: 12px;
+			color: var(--dt-gray13);
+		}
+	}
+	&.badge-tip {
+		min-height: 22px;
+		border-radius: 36px;
+		border-color: var(--dt-white);
+		background-color: rgba(255, 255, 255, 0.1);
+		padding: 4px 8px;
+		.txt {
+			color: var(--dt-white);
+		}
+	}
+	&.badge-time {
+		align-items: center;
+		width: 104px;
+		height: 36px;
+		border-color: transparent;
+		border-radius: 40px;
+		background: rgba(236, 0, 140, 0.05);
+		padding: 4px 12px;
+		.txt {
+			color: var(--dt-primary);
+		}
+		.icon {
+			background-image: url(../images/icon/ic-badge-clock.svg);
+			background-size: 18px 18px;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+		&.error {
+			background-color: rgba(226, 42, 33, 0.05);
+			.txt {
+				color: var(--dt-error);
+			}
+			.icon {
+				background-image: url(../images/icon/ic-badge-clock-error.svg);
+			}
+		}
+	}
+}

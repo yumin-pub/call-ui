@@ -1,0 +1,158 @@
+@import '../base/mixin';
+
+.radio-group { //
+	display: inline-flex;
+	position: relative;
+	min-width: 20px;
+	min-height: 20px;
+	padding-left: 20px;
+	color: #000;
+	text-align: left;
+	cursor: pointer;
+	align-items: center;
+
+	.ic-radio { // 라디오아이콘 : 디폴트
+		overflow: hidden;
+		position: absolute;
+		left: 0;
+		top: 0;
+		border-radius: 50%;
+		width: 20px;
+		height: 20px;
+		border: 2px solid var(--dt-gray09);
+		transition: border-color 0.15s ease-in-out;
+		align-self: baseline;
+		& + span {display:inline-block;margin-left:8px;}
+	}
+	input[type=radio] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 20px;
+		height: 20px;
+		background: transparent;
+		border: 0;
+		outline: 0;
+		opacity: 0;
+		&:checked ~ .radio-label{
+			.ic-radio {
+				border-color:var(--dt-primary);
+				&::before {
+					content: '';
+					position:absolute;
+					top:50%;
+					left:50%;
+					margin-top:-5px;
+					margin-left:-5px;
+					display:block;
+					width:10px;
+					height:10px;
+					background-color:var(--dt-primary);
+					border-radius:50%;
+				}
+			}
+		}
+		&:disabled ~ .radio-label,
+		&:checked:disabled ~ .radio-label {
+			pointer-events: none;
+    		opacity: 0.36;
+		}
+		// &:checked:disabled ~ .radio-label {
+		// 	pointer-events: none;
+    	// 	opacity: 0.36;
+		// }
+	}
+	.radio-label {
+		display: inline-block;
+		vertical-align: baseline;
+		font-size: 14px;
+	}
+
+}
+	@mixin form-input-reset {
+	appearance: none; -webkit-appearance: none; -moz-appearance: none;
+	margin: 0; padding: 0; width: 0; height: 0;
+	accent-color: transparent; position: absolute; opacity: 0;
+	}
+
+// 공통 스타일 (case1 + case2)
+.radio,
+label.radio {
+	--checked: var(--dt-primary);
+	--border-color: var(--dt-gray09);
+	font-size: 16px;
+	position: relative;
+	cursor: pointer;
+}
+
+.radio__input {
+	@include form-input-reset;
+}
+
+.radio__label-wrap,
+label.radio {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+.radio__icon {
+	width: 20px;
+	height: 20px;
+	border: 2px solid var(--border-color);
+	border-radius: 50%;
+	background: transparent;
+	position: relative;
+}
+
+.radio__icon::before {
+	content: "";
+	width: 10px; height: 10px;
+	border-radius: 50%;
+	background: var(--checked);
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+
+.radio__label {
+	font-size: 1em;
+	color: var(--dt-black);
+}
+
+// 상태: checked
+.radio__input:checked ~ .radio__icon,
+.radio__input:checked + .radio__label-wrap .radio__icon {
+	border-color: var(--checked);
+}
+
+.radio__input:checked ~ .radio__icon::before,
+.radio__input:checked + .radio__label-wrap .radio__icon::before {
+	opacity: 1;
+}
+
+.radio__input:checked ~ .radio__label,
+.radio__input:checked + .radio__label-wrap .radio__label {
+	color:var(--dt-black);
+}
+
+// 상태: focus
+.radio__input:focus-visible ~ .radio__icon,
+.radio__input:focus-visible + .radio__label-wrap .radio__icon {
+	outline: 2px solid var(--checked);
+}
+
+// 상태: disabled
+.radio__input:disabled ~ .radio__icon,
+.radio__input:disabled ~ .radio__label,
+.radio__input:disabled + .radio__label-wrap .radio__icon,
+.radio__input:disabled + .radio__label-wrap .radio__label {
+	opacity: 0.3;
+	cursor: not-allowed;
+}
+
+// 상태: hover
+.radio__icon:hover {
+	border-color: #999;
+}

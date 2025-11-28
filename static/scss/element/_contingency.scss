@@ -1,0 +1,49 @@
+.page-wrapper {
+	&.main {
+		.container {
+			.section__cont {
+				&.contingency {
+					padding: 0 20px;
+					row-gap: 16px;
+				}
+			}
+		}
+	}
+
+}
+.cont__wrap {
+	&.cont__wrap-contingency {
+		margin: 0 0 0; /* 2025.11.10 contingency 영역 padding 정리*/
+		padding: 24px 20px 28px;
+		background-color: var(--dt-gray02);
+		border-radius: 12px;
+		.txt-box {
+			color: var(--dt-black);
+			.txt-tit {
+				font-weight: 700;
+				font-size: var(--dt-fz22);
+				line-height: 1.2;
+			}
+			.txt-cont {
+				padding-top: 16px;
+				font-weight: 400;
+				font-size: var(--dt-fz16);
+				line-height: 1.4;
+				&:not(:last-child) {
+					margin-bottom: 30px;
+				}
+				br {
+					display: inline-block;
+					width: 100%;
+					height: 0.5em; /* p의 line-height 대비 상대적 여백 */
+				}
+				.c-prim {
+					color: var(--dt-primary);
+				}
+			}
+		}
+	}
+	&.cont__wrap-cntngncyMenu {
+		padding: 0 0 20px; /* 2025.11.10 contingency 영역 padding 정리*/
+	}
+}

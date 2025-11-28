@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<!-- Set the viewport. -->
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1.0">
+	<!-- Disable automatic phone number detection. -->
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<title>call ui</title>
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/common.css">
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/dataGift.css">
+	
+	<!-- Scripts -->
+</head>
+<body>
+	<div class="page-wrapper dataGift">
+		<!-- header -->
+		<header class="header">
+			<div class="header__util">
+				<button type="button" class="btn btn-util end"><span>처음</span></button>
+			</div>
+			<div class="header__btn">
+				<button type="button" class="btn btn-callEnd"><span class="icon"></span><span class="txt">종료</span></button>
+			</div>
+		</header>
+		<!-- //header -->
+	
+		<!-- container -->
+		<div class="container">
+			<div class="section__cont ">
+				<div class="cont__wrap cont__wrap-service">
+					<div class="cont__txt-box">
+						<h4 class="txt">
+							내 데이터를<br/>
+							<span class="deco">가족,친구에게 선물</span>해 보세요
+						</h4>
+					</div>
+					<div class="card-group flex-column">
+						<div class="card horizon chngCode">
+							<div class="card-body">
+								<div class="item text">
+									<span class="txt">모바일</span>
+									<span class="tit">010-1234-5678</span>
+									<span class="sub">외 1건</span>
+								</div>
+							</div>
+							<div class="card-footer">
+								<div class="btn-group">
+									<button class="btn btn-md" type="button" id="slctOtherLine">
+										<span class="txt">다른 번호 선택</span>
+									</button>
+								</div>
+							</div> 
+						</div>
+					</div>
+
+					<div class="card horizon sendData" role="button">
+						<div class="card-body">
+							<div class="item util">
+								<span class="img-box">
+									<img src="../../../../static/images/icon/ic-data-resend.png" alt="타이틀">
+								</span>
+							</div>
+							<div class="item text">
+								<span class="tit"><span>콜아이</span>님에게 <span>1GB</span>&nbsp;다시 보내기</span>
+								<span class="txt">데이터 선물하기</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="service-wrap">
+						<div class="con__tit-box">
+							<h6 class="tit-head">
+								<span class="txt-title">받을 사람의 휴대폰 번호를 입력해주세요</span>
+							</h6>
+						</div>
+						<!-- 
+							[[ 입력 상태 별 class ]] : input-control에 클래스를 추가하여 모든 상태를 제어
+								** 포커스 : focused 
+								** 유효성 검사 성공 : success
+								** 유효성 검사 에러 : error
+								** 읽기 전용 : disabled
+								** 비활성 : disabled
+								기본 : <div class="input-control">
+								포커스 : <div class="input-control focused">
+								비활성, 읽기 전용 : <div class="input-control disabled">
+								유효성 검사 성공 : <div class="input-control success">
+								유효성 검사 에러 : <div class="input-control error">
+						-->
+	
+						<!-- 연락처 입력 -->
+						<div class="input-control">				
+							<div class="input-group">
+								<label class="input-label">휴대폰 번호</label>
+								<div class="input-row">
+									<input type="tel" class="input-field" placeholder="‘-’없이 숫자만 입력" autocomplete='off' /><!-- 숫자 입력 시 “010-NNNN-NNNN” 형태로 노출 -->
+									<div class="util-box">
+										<button type="button" class="clear-btn hidden"></button>
+										<!-- 
+										<button type="button" class="clear-btn"> : 1글자 이상 입력 시, 전체 삭제 [X]버튼 노출 : hidden 삭제 
+										-->
+									</div>
+								</div>                            
+							</div>
+							<!-- <div class="validation-txt">validation 메시지 필요시 노출</div> -->
+						</div>
+						<div class="btn-group mt-16">
+							<button class="btn btn-prim is-disabled" type="button" id="inputBtn">
+								<span class="txt">확인</span>
+							</button>
+						</div>
+					</div>
+
+					<div class="service-wrap">
+						<div class="con__tit-box">
+							<h6 class="tit-head">
+								<span class="txt-title">최근 목록</span>
+							</h6>
+						</div>
+						<div class="btn-group flex-column">
+							<button class="btn btn-between bg-withdraw">
+								<span class="txt-wrap">
+									<span class="txt-head">
+										콜아이
+									</span>
+									<span class="txt">
+										010-1234-5678
+									</span>
+								</span>
+								<span class="img-box ico20">
+									<img src="../../../../static/images/icon/ic-btn-arrow-right-sm.png">
+								</span>
+							</button>
+						</div>
+						<div class="card solid center hidden">
+							<div class="card-body">
+								<span class="img-box">
+									<img src="../../../../static/images/icon/ic-card-bill_x.svg" alt="내역 없음">
+								</span>
+								<div class="text-box">
+									<span class="txt">최근 이용 내역이 없어요</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="service-wrap">
+						<div class="con__tit-box">
+							<h6 class="tit-head">
+								<span class="txt-title">결합 가족/지인</span>
+							</h6>
+						</div>
+						<div class="btn-group flex-column">
+							<button class="btn btn-between bg-withdraw">
+								<span class="txt-wrap">
+									<span class="txt-head">
+										콜아이
+									</span>
+									<span class="txt">
+										010-1234-5678
+									</span>
+								</span>
+								<span class="img-box ico20">
+									<img src="../../../../static/images/icon/ic-btn-arrow-right-sm.png">
+								</span>
+							</button>
+							<button class="btn btn-between bg-withdraw">
+								<span class="txt-wrap">
+									<span class="txt-head">
+										콜아이
+									</span>
+									<span class="txt">
+										010-1234-5678
+									</span>
+								</span>
+								<span class="img-box ico20">
+									<img src="../../../../static/images/icon/ic-btn-arrow-right-sm.png">
+								</span>
+							</button>
+						</div>
+						<div class="card solid center hidden">
+							<div class="card-body">
+								<span class="img-box">
+									<img src="../../../../static/images/icon/ic-card-bill_x.svg" alt="내역 없음">
+								</span>
+								<div class="text-box">
+									<span class="txt">결합된 가족/지인이 없어요</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	<div class="popup-wrapper" id="slctotherLinePop">
+		<div class="back-drop"></div>
+		<div class="popup__wrap">
+			<div class="popup-header">
+				<div class="popup-tit">
+					<span class="txt"><span class="color-prim">휴대폰 번호</span>를 선택하세요</span>
+				</div>
+				<button class="btn btn-util close" type="button" alt="닫기"></button>
+			</div>
+			<div class="popup-body">
+				<div class="slctInfo-box slctChild">
+					<div class="btn-group flex-column">
+						<button class="btn btn-phoneLine" type="button">
+							<span class="txt-wrap">
+								<span class="tit">010-1234-5678</span>
+								<span class="txt">(넷플릭스) 5G 프리미어 슈퍼</span>
+							</span>
+						</button>
+						<button class="btn btn-phoneLine" type="button">
+							<span class="txt-wrap">
+								<span class="tit">010-1234-5678</span>
+								<span class="txt">LTE Wearable</span>
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	document.addEventListener('DOMContentLoaded', function () {
+
+		/* -------------------------------
+		다른 회선 선택 팝업
+		-------------------------------- */
+		const openLineBtn = document.getElementById('slctOtherLine');
+		const linePopup   = document.getElementById('slctotherLinePop');
+
+		if (openLineBtn && linePopup) {
+		openLineBtn.addEventListener('click', function () {
+			linePopup.classList.add('show');
+		});
+
+		// 팝업 안에서 아무 버튼 눌러도 닫히도록
+		linePopup.addEventListener('click', function (e) {
+			const btn = e.target.closest('button');
+			if (!btn) return;
+			linePopup.classList.remove('show');
+		});
+		}
+
+
+		/* -------------------------------
+		휴대폰 번호 입력 처리
+		(자동 하이픈 + 버튼 활성화)
+		-------------------------------- */
+		const phoneInput = document.querySelector('.input-control .input-field');
+		const clearBtn   = document.querySelector('.input-control .clear-btn');
+		const nextBtn    = document.getElementById('inputBtn');
+
+		// 번호 형식 맞추기 (3-4-4)
+		function formatPhone(value) {
+		const digits = value.replace(/\D/g, '').slice(0, 11);
+
+		if (digits.length <= 3) {
+			return digits;
+		} else if (digits.length <= 7) {
+			return digits.slice(0, 3) + '-' + digits.slice(3);
+		} else {
+			return (
+			digits.slice(0, 3) +
+			'-' +
+			digits.slice(3, 7) +
+			'-' +
+			digits.slice(7)
+			);
+		}
+		}
+
+		// 번호가 완성되었는지 체크
+		function isCompletePhone(v) {
+		return /^\d{3}-\d{4}-\d{4}$/.test(v);
+		}
+
+		if (phoneInput) {
+		phoneInput.addEventListener('input', function () {
+			const formatted = formatPhone(phoneInput.value);
+			phoneInput.value = formatted;
+
+			// 입력 여부에 따라 clear 버튼 노출
+			const hasValue = formatted.replace(/\D/g, '').length > 0;
+			clearBtn?.classList.toggle('hidden', !hasValue);
+
+			// 번호가 완성되면 다음 버튼 활성화
+			if (nextBtn) {
+			if (isCompletePhone(formatted)) {
+				nextBtn.classList.remove('is-disabled');
+			} else {
+				nextBtn.classList.add('is-disabled');
+			}
+			}
+		});
+		}
+
+		// clear 버튼 누르면 전체 초기화
+		if (clearBtn && phoneInput) {
+		clearBtn.addEventListener('click', function () {
+			phoneInput.value = '';
+			clearBtn.classList.add('hidden');
+			nextBtn?.classList.add('is-disabled');
+			phoneInput.focus();
+		});
+		}
+
+
+		/* -------------------------------
+		다음 단계 이동
+		-------------------------------- */
+		if (nextBtn) {
+		nextBtn.addEventListener('click', function () {
+			if (nextBtn.classList.contains('is-disabled')) return;
+			window.location.href = './pop_full_giveMyData.html';
+		});
+		}
+
+	});
+	</script>
+
+
+
+</body>
+</html>

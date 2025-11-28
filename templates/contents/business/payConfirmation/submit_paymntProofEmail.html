@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<!-- Set the viewport. -->
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1.0">
+	<!-- Disable automatic phone number detection. -->
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<title>call ui</title>
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/common.css">
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/payConfirmation.css">
+	
+	<!-- Scripts -->
+</head>
+<body>
+	<div class="page-wrapper payConfirmation">
+		<!-- header -->
+		<header class="header">
+			<div class="header__util">
+				<button type="button" class="btn btn-util end"><span>처음</span></button>
+			</div>
+			<div class="header__btn btn-group">
+				<button type="button" class="btn btn-callEnd"><span class="icon"></span><span class="txt">종료</span></button>
+			</div>
+		</header>
+		<!-- //header -->
+	
+		<!-- container -->
+		<div class="container">
+			<div class="section__cont">
+				<div class="cont__wrap cont__wrap-service">
+					<div class="cont__txt-box">
+						<h4 class="txt">
+							납부확인서 발급 정보를<br>
+							입력해 주세요
+						</h4>
+						<ul class="bullet-list info">
+							<li class="bullet-item">최대 24개월까지 발급 가능합니다.</li>
+						</ul>
+					</div>
+					
+					<!-- 발급 기간 입력 -->
+					<div class="input-row-wrap mt-28">
+						<!-- 
+							[[ 입력 상태 별 class ]] : input-control에 클래스를 추가하여 모든 상태를 제어
+								** 포커스 : focused 
+								** 유효성 검사 성공 : success
+								** 유효성 검사 에러 : error
+								** 읽기 전용 : disabled
+								** 비활성 : disabled
+								기본 : <div class="input-control">
+								포커스 : <div class="input-control focused">
+								비활성, 읽기 전용 : <div class="input-control disabled">
+								유효성 검사 성공 : <div class="input-control success">
+								유효성 검사 에러 : <div class="input-control error">
+						-->
+						<div class="input-control focused">							
+							<div class="input-group">
+								<label class="input-label">시작 월 입력</label>
+								<div class="input-row">
+									<input type="tel" class="input-field" placeholder="YYYYMM" >
+									<div class="util-box">										
+										<button type="button" class="clear-btn hidden"></button>
+										<!--<button type="button" class="clear-btn"> : 1글자 이상 입력 시, 전체 삭제 [X]버튼 노출 : hidden 삭제-->
+									</div>
+								</div>
+							</div>
+							<!-- <div class="validation-txt">validation 메시지 필요시 노출</div> -->
+						</div>
+						<span class="hyphen">~</span>
+						<div class="input-control">
+							<div class="input-group">
+								<label class="input-label">종료 월 입력</label>
+								<div class="input-row">
+									<input type="tel" class="input-field" placeholder="YYYYMM">
+									<div class="util-box">
+										<button type="button" class="clear-btn hidden"></button>
+										<!-- <button type="button" class="clear-btn"> : 1글자 이상 입력 시, 전체 삭제 [X]버튼 노출 : hidden 삭제-->
+									</div>
+								</div>
+							</div>
+							<!-- <div class="validation-txt">validation 메시지 필요시 노출</div> -->
+						</div>
+					</div>
+
+					<!-- 이메일 입력 -->
+					<div class="input-control email-form mt-28">				
+						<div class="input-group">
+							<label class="input-label">이메일</label>
+							<div class="input-row">
+								<input type="text" class="input-field" name="email" placeholder="이메일 주소 입력" >
+								<div class="util-box">									
+									<button type="button" class="clear-btn hidden"></button>
+									<!-- 1글자 이상 입력 시 [X]버튼 노출 : hidden 삭제 <button type="button" class="clear-btn"> -->
+								</div>
+							</div>					
+							<button type="button" class="slct-box" id="paymntProofEmailBtn">
+								<span class="txt">이메일 선택</span>
+								<!-- 이메일 선택 후 상태 : done 클래스 추가 및 이메일 도메인 텍스트 변경
+								  : <button type="button" class="slct-box done"><span class="txt">@naver.com</span> -->
+								<span class="arrow"></span>
+							</button>
+						</div>
+						<!-- <div class="validation-txt">validation 메시지 필요시 노출</div> -->
+					</div>
+				</div>
+
+				<div class="cont__wrap cont__wrap-btBtn">
+					<!-- 버튼 형태 클래스 full 
+						## 키보드 노출시 : 풀 버튼 ##
+							<div class="btn-group flex-row is-confirm full">
+						## 키보드 미노출시: 일반 버튼 ##
+							<div class="btn-group flex-row is-confirm">
+					-->
+					<div class="btn-group flex-row is-confirm full">
+						<button class="btn btn-prim is-disabled" type="button">
+							<span class="txt">납부확인서 신청</span>
+						</button>
+						<!-- 
+							## 버튼 상태 class 
+							버튼 활성 : <button class="btn btn-prim" type="button"> 
+							버튼 비활성 is-disabled : <button class="btn btn-prim is-disabled" type="button">  
+						-->
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	
+	<div class="popup-wrapper">
+		<div class="back-drop"></div>
+		<div class="popup__wrap">
+			<div class="popup-header">
+				<div class="popup-tit">
+					<span class="txt"><span class="color-prim">이메일 도메인</span>을 선택해 주세요</span>
+				</div>
+				<button class="btn btn-util close" type="button" alt="닫기"></button>
+			</div>
+			<div class="popup-body">				
+				<div class="slctInfo-box slctDomain">
+					<div class="btn-group flex-column">
+						<button class="btn btn-popSolid" type="button">
+							<span class="txt">직접 입력</span>
+						</button>
+						<button class="btn btn-popSolid" type="button">
+							<span class="txt">@naver.com</span>
+						</button>
+						<button class="btn btn-popSolid" type="button">
+							<span class="txt">@gmail.com</span>
+						</button>
+						<button class="btn btn-popSolid" type="button">
+							<span class="txt">@daum.net</span>
+						</button>
+						<button class="btn btn-popSolid" type="button">
+							<span class="txt">@kakao.com</span>
+						</button>
+						<button class="btn btn-popSolid" type="button">
+							<span class="txt">@nate.com</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="popup-footer hidden"></div>
+		</div>
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+
+			// 이메일 도메인 선택 박스
+			const selectBox = document.querySelector('.slct-box');
+			const popup = document.querySelector('.popup-wrapper');
+
+			// 팝업 닫기 요소
+			const closeBtn = popup?.querySelector('.btn.btn-util.close') || null;
+			const backdrop = popup?.querySelector('.back-drop') || null;
+
+			// 제출 버튼 (초기 비활성)
+			const submitBtn = document.querySelector('.btn.btn-prim.is-disabled');
+
+			if (!selectBox || !popup) return;
+
+
+			/* ------------------------------
+			도메인 선택 팝업 열기
+			------------------------------ */
+			selectBox.addEventListener('click', function () {
+			popup.classList.add('show');
+			});
+
+
+			/* ------------------------------
+			팝업에서 도메인 선택 처리
+			------------------------------ */
+			popup.addEventListener('click', function (e) {
+			const btn = e.target.closest('.btn.btn-popSolid');
+			if (!btn) return;
+
+			const domain = btn.querySelector('.txt')?.textContent.trim();
+			if (!domain) return;
+
+			// 도메인 버튼만 반영
+			if (domain.startsWith('@')) {
+				const label = selectBox.querySelector('.txt');
+				if (label) label.textContent = domain;
+
+				selectBox.classList.add('done');
+				submitBtn?.classList.remove('is-disabled');
+			}
+
+			// 선택 후 팝업 닫기
+			popup.classList.remove('show');
+			});
+
+
+			/* ------------------------------
+			팝업 닫기 (닫기 버튼 / 배경)
+			------------------------------ */
+			const closePopup = () => popup.classList.remove('show');
+			closeBtn?.addEventListener('click', closePopup);
+			backdrop?.addEventListener('click', closePopup);
+
+
+			/* ------------------------------
+			제출 버튼 → 완료 페이지 이동
+			------------------------------ */
+			if (submitBtn) {
+			submitBtn.addEventListener('click', function () {
+				if (submitBtn.classList.contains('is-disabled')) return;
+				window.location.href = './finish_paymntProofEmail.html';
+			});
+			}
+
+		});
+	</script>
+
+
+	
+</body>
+</html>

@@ -1,0 +1,344 @@
+@import "../scss/base/mixin";
+.dataGift {
+    .cont__wrap-service {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
+    // 서비스 영역 div
+    .service-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .con__tit-box {
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: unset;
+            .tit-tail {
+                display: flex;
+                align-items: center;
+                @include fw-5(14px);
+                color: var(--dt-gray10);
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 1px;
+                    height: 12px;
+                    background-color: var(--dt-gray10);
+                    margin: 0 8px;
+                }
+            }
+        }
+    }
+
+    // 가족 선택 버튼
+    .btn-between {
+        justify-content: space-between;
+        padding: 16px;
+        border-radius: 8px;
+        .txt-wrap {
+            @include flexColum();
+            align-items: flex-start;
+            row-gap: 6px;
+            .txt-head {
+                @include fw-5(16px);
+                line-height: 1.5;
+                color: var(--dt-gray16);
+            }
+            .txt {
+                font-size: 14px;
+            }
+        }
+    }
+
+    // 데이터 자동주기 번호 선택 버튼
+    .phoneList {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 12px;
+        .card {
+            padding: 14px 20px;
+            .item {
+                &:has(.add-txt) {
+                    justify-content: center;
+                }
+                gap: 12px;
+                .tit {
+                    @include fw-7(16px);
+                    color: var(--dt-gray16);
+                }
+                .txt {
+                    font-size: 16px;
+                    color: var(--dt-gray12);
+                    margin-left: unset;
+                    &.add-txt {
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                }
+                .data {
+                    position: relative;
+                    @include fw-5(14px);
+                    color: var(--dt-primary);
+                    padding-left: 6px;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 0;
+                        display: inline-block;
+                        width: 1px;
+                        height: 14px;
+                        background-color: var(--dt-gray06);
+                    }
+                }
+            }
+            .card-footer {
+                .close {
+                    width: 24px;
+                    height: 24px;
+                    background-image: url(../images/icon/ic-card_close_small_line.svg);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center center;
+                }
+            }
+        }
+    }
+
+    // 쿠폰 이미지
+    .coupon-wrap {
+        @include flexColum();
+        @include flexBox();
+        row-gap: 16px;
+        margin-top: 24px;
+        .img-box {
+            width: 75%;
+            max-width:250px;
+            min-width: 200px;
+        }
+        .txt-box {
+            color: var(--dt-gray16);
+            @include fw-6(14px);
+            .txt-tit {
+                @include fw-5(14px);
+                line-height: 1.2;
+                color: var(--dt-gray12);
+            }
+            .color-prim {
+                @include fw-7(16px);
+                line-height: 1.5;
+                color: var(--dt-primary);
+            }
+        }
+    }
+
+    // 데이터 양 선택 Range
+    .data-box {
+        display: flex;
+        flex-direction: column;
+        margin-top: 24px;
+        padding: 0 8px;
+        .data {
+            color: var(--dt-primary);
+            @include fw-7(36px);
+            line-height: 1.2;
+        }
+        .data-slide {
+            display: flex;
+            flex-direction: column;
+            margin-top: 4px;
+            .row {
+                display: flex;
+                justify-content: space-between;
+                color: var(--dt-gray13);
+                @include fw-5(14px);
+                margin: 4px 0 15px;
+            }
+            .range-custom {
+                width: 100%;
+                height: 6px;
+                position: relative;
+                border-radius: 6px;
+                background: var(--dt-gray03);
+                appearance: none;
+                z-index: 1;
+                &::-webkit-slider-runnable-track {
+                    background: transparent;
+                }
+                &::-webkit-slider-thumb {
+                    appearance: none;
+                    width: 32px;
+                    height: 32px;
+                    border: 1px solid var(--dt-gray08); 
+                    border-radius: 50%;
+                    box-shadow: -3px 1px 7px 0 rgba(0,0,0,.16);
+                    background-color: var(--dt-white);
+                    cursor: pointer;
+                }
+            }
+            .scale-line {
+                display: flex;
+                justify-content: space-between;
+                margin: 9px 16px 0;
+                height: 6px;
+                > * {
+                    position: relative;
+                    z-index: 0;
+                    height: 6px;
+                    &::before {
+                        display: block;
+                        width: 2px;
+                        height: 6px;
+                        border-radius: 4px;
+                        background: #bbb;
+                        content: "";
+                    }
+                    &:first-child::before, &:last-child::before {
+                        content: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // 날짜별 선물리스트
+    .listGift {
+        gap:12px;
+        padding:20px;
+        .gift-date {
+            @include fw-5(12px);
+            line-height: 18px;
+            color: var(--dt-gray11);
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            &:not(:last-child) {
+                padding-bottom: 12px;
+                border-bottom: 1px solid var(--dt-gray06);
+            }
+            .gift-info {
+                @include flexBox(between, center);
+                flex-wrap: wrap;
+                .used-name {
+                    @include fw-7(16px);
+                    line-height: 1.5;
+                    color: var(--dt-gray14);
+                }
+                .used-won {
+                    @include fw-7(16px);
+                    line-height: 1.5;
+                    color: var(--dt-black);
+                    text-align:right;
+                    flex: 1;
+                }
+                .flag {
+                    padding: 6px 10px;
+                    .txt {line-height:1.5;letter-spacing: -0.5px; font-size: 13px;}
+                }
+                .txt-sub {
+                    font-size:13px;
+                    line-height:1.5;
+                    margin-top: 0;
+                    .sub-tel {
+                        &::before {
+                            content: '';
+                            display: inline-block;
+                            width: 1px;
+                            height: 12px;
+                            background-color: var(--dt-gray10);
+                            margin: 0 8px;
+                            transform: translateY(2px); 
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 데이터 보내기 버튼
+    .sendData {
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid var(--dt-gray17);
+        background-color: var(--dt-white);
+        box-shadow: unset;
+        padding: 16px;
+        gap: 6px;
+        .chips.chips-tag {
+            margin-left: auto;
+            min-height: 22px;
+            border: none;
+            background-color: var(--dt-gray11);
+            padding: 3px 12px;
+            .txt {
+                font-size: 11px;
+                color: var(--dt-white);
+            }
+        }
+        .item.text {
+            gap: 4px;
+            .tit {
+                font-size: 16px;
+            }
+            .num {
+                @include fw-6(15px);
+                color: var(--dt-primary);
+                .num-txt {
+                    @include fw-5(14px);
+                }
+            }
+        }
+        &.is-disabled {
+            background-color: var(--dt-gray17);
+            &:active {
+                box-shadow: none;
+            }
+            .chips {
+                opacity: 0.6;
+            }
+        }
+    }
+
+    //데이터 선물,충전 현황 검색
+    .slct-control.combine-element {
+        .slct-box {
+            min-width: 120px;
+            .txt {
+                font-size: 16px;
+            }
+            &.done .txt {
+                font-size: 14px;
+            }
+        }
+    }
+    &.multiProds {
+        .header__slctBtn {
+            .btn-between { 
+                .txt-wrap {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
+
+            }
+        }
+        .container {
+            .section__cont {
+                &.summary {
+                    padding-top: 104px !important;
+                    gap: 9px;
+                }
+            }
+        }
+    }
+}
+
+//페이지팝업
+.full-popup {
+    .cont__wrap-vertical {
+        gap: 28px;
+    }
+}

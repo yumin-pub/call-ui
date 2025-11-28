@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<!-- Set the viewport. -->
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1.0">
+	<!-- Disable automatic phone number detection. -->
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<title>보이는 ARS</title>
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/common.css">
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/survey.css">
+
+	<!-- Scripts -->
+</head>
+<body>
+	<!-- ====== start page ====== -->
+	<div class="page-wrapper survey">
+		<!-- 타회선 조회시 multiProds에 multiProds 클래스 추가
+			<div class=" survey multiProds">
+		-->
+		<!-- header -->
+		<header class="header">
+			<div class="header__util">
+				<button type="button" class="btn btn-util end"><span>처음</span></button>
+			</div>
+		</header>
+		<!-- //header -->
+		<div class="container">
+			<div class="section__cont section__cont-srvyList">
+				<!-- 상단 로고 & 타이틀 -->
+				<div class="cont__wrap cont__wrap-service">
+					<!-- @@@퍼블공지@@@ 
+						라디오 버튼에서 동의함 누를 경우 open 클래스 붙음!! 
+						초기 인입시 open클래스 없이 인입
+						초기 인입 : <div class="survey-container">
+						라디오 버튼 - 동의함 눌렀을 때 : <div class="survey-container open">
+					-->
+					<div class="survey-container">
+						<!-- @@@퍼블공지@@@ 
+							보이는 ARS 만족도 평가 flag 디자인
+							보이는 ARS 영역 최상단에 표시
+							<div class="flag primary">
+						-->
+						<div class="flag primary">
+							<span class="txt">만족도 평가 1</span>
+						</div>
+						<!--  @@@퍼블공지@@@ 
+							accordion-header : 개인정보 수집 및 이용 동의 문항이 필수로 들어감 
+						-->
+						<div class="survey-header">
+							<!-- 아코디언버튼, 동의 항목 -->
+							<!-- card: 문항 1SET -->
+							<div class="card svInform">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn asterisk">
+											<!-- @@@퍼블공지@@@ 
+												필수 표시할 경우 asterisk클래스 추가 / 필수 아닐경우 제거
+												필수 표시 : <div class="sv-box qstn asterisk">
+												필수 아닐시 : <div class="sv-box qstn">
+											-->
+											<span class="sv-num ">1.</span>
+											<span class="sv-qstn">
+												<strong>개인정보 수집 및 이용 동의</strong><br>
+												서비스 개선을 위해 본인의 개인정보를 다음과 같이 수집 및 이용합니다. 고객님은 설문 동의를 거부할 권리가 있으나, 거부하실 경우 설문조사 진행이 어려운 점 양해 부탁드립니다.<br>
+												<!-- <strong>1)수집 및 이용 목적</strong>:서비스 개선을 위한 설문<br/>
+												<strong>2)수집 및 이용 항목</strong>:휴대전화번호, 이름<br>
+												<strong>3)보관 및 이용 기간</strong>:설문 종료 후 6개월까지 -->
+												1)수집 및 이용 목적 : 서비스 개선을 위한 설문<br/>
+												2)수집 및 이용 항목 : 휴대전화번호, 이름<br>
+												3)보관 및 이용 기간 : 설문 종료 후 6개월까지
+												<!-- <table class="table-bullet-desc">
+													<tr>
+														<th scope="col">수집 및 이용 목적</th>
+														<td>서비스 개선을 위한 설문</td>
+													</tr>
+													<tr>
+														<th scope="col">수집 및 이용 항목</th>
+														<td>휴대전화번호, 이름</td>
+													</tr>
+													<tr>
+														<th scope="col">보관 및 이용 기간</th>
+														<td>설문 종료 후 6개월까지</td>
+													</tr>
+												</table> -->
+											</span>21
+										</div>
+										<div class="sv-box answr">
+											<div class="radio-group" role="radiogroup00" aria-label="경험 여부">
+												<label class="radio" id="val000">
+													<input type="radio" name="exp01" value="val000" for="val000"/>
+													<div class="radio__frame">
+													<span class="radio__control" aria-hidden="true"></span>
+													<span class="radio__text btn-toggle">동의함</span>
+													</div>
+												</label>
+												<label class="radio" id="val001">
+													<input type="radio" name="exp01" value="val001" for="val001" />
+													<div class="radio__frame">
+													<span class="radio__control" aria-hidden="true"></span>
+													<span class="radio__text">동의하지 않음</span>
+													</div>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- @@@퍼블공지@@@  
+							accordion-content : 상시 바뀌는 문항 들어감 -->
+						<div class="survey-content">
+							<!-- card: 문항 1SET -->
+							<div class="card svInform">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn asterisk">
+											<!-- @@@퍼블공지@@@ 
+												필수 표시할 경우 asterisk클래스 추가 / 필수 아닐경우 제거
+												필수 표시 : <div class="sv-box qstn asterisk">
+												필수 아닐시 : <div class="sv-box qstn">
+											-->
+											<span class="sv-num ">2.</span>
+											<span class="sv-qstn">
+												홈(인터넷, IPTV) 고객센터 보이는 ARS 서비스를 가족이나 주변 지인에게 추천하겠습니까?
+											</span>
+										</div>
+										<div class="sv-box answr">
+											<!-- 점수 선택: 라디오 그룹 -->
+											<div class="rating-wrap">
+												<div class="rating-box">
+												<!-- @@@퍼블공지@@@ 
+													문항 개수에 따라 rating의 스타일에 있는 변수 바꿔줌
+													<예시>
+													문항 11개일 경우 : <div class="rating" style="--count:11" >
+													문항 6개일 경우 : <div class="rating" style="--count:6" >
+												-->
+													<div class="rating" style="--count:11" role="radiogroup01" aria-label="만족도 선택">
+														<!-- 같은 name이면 단일선택 + 키보드 화살표 이동 가능 -->
+														<label class="rating__item">
+															<input type="radio" name="exp02" value="0" aria-label="1점" />
+															<span class="rating__dot" aria-hidden="true">0</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp02" value="1" aria-label="1점" />
+															<span class="rating__dot" aria-hidden="true">1</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp02" value="2" aria-label="2점"/>
+															<span class="rating__dot" aria-hidden="true">2</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp02" value="3" aria-label="3점"/>
+															<span class="rating__dot" aria-hidden="true">3</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp02" value="4" aria-label="4점"/>
+															<span class="rating__dot" aria-hidden="true">4</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp02" value="5" aria-label="5점"/>
+															<span class="rating__dot" aria-hidden="true">5</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp02" value="6" aria-label="6점"/>
+															<span class="rating__dot" aria-hidden="true">6</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp02" value="7" aria-label="7점"/>
+															<span class="rating__dot" aria-hidden="true">7</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp02" value="8" aria-label="8점"/>
+															<span class="rating__dot" aria-hidden="true">8</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp02" value="9" aria-label="9점"/>
+															<span class="rating__dot" aria-hidden="true">9</span>
+														</label>
+														<label class="rating__item">
+															<!-- @@@퍼블공지@@@ 
+																체크 상태일 경우 input에 checked 되어 있음
+																<input type="radio" name="exp02" value="10" aria-label="10점" checked/>
+															-->
+															<input type="radio" name="exp02" value="10" aria-label="10점" checked/>
+															<span class="rating__dot" aria-hidden="true">10</span>
+														</label>
+													</div>
+												</div>
+												<div class="rating__info">
+													<span class="rating-low">전혀<br>추천하지 않는다</span>
+													<span class="rating-high">적극<br>추천한다</span>
+												</div>		
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- card: 문항 1SET -->
+							<div class="card svInform">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn">
+											<!-- @@@퍼블공지@@@ 
+												필수 표시할 경우 asterisk클래스 추가 / 필수 아닐경우 제거
+												필수 표시 : <div class="sv-box qstn asterisk">
+												필수 아닐시 : <div class="sv-box qstn">
+											-->
+											<span class="sv-num ">3.</span>
+											<span class="sv-qstn">
+												위와 같이 평가하시게 된 주된 이유는 무엇입니까?
+											</span>
+										</div>												
+										<div class="sv-box answr">
+											<div class="radio-group" role="radiogroup" aria-label="경험 여부">
+												<label class="radio">
+													<input type="radio" name="exp03" value="val01" />
+													<div class="radio__frame">
+													<span class="radio__control" aria-hidden="true"></span>
+													<span class="radio__text">안내 내용의 이해도</span>
+													</div>
+												</label>
+
+												<label class="radio">
+													<input type="radio" name="exp03" value="val02" />
+													<div class="radio__frame">
+													<span class="radio__control" aria-hidden="true"></span>
+													<span class="radio__text">사용 편의성</span>
+													</div>
+												</label>
+												<label class="radio">
+													<input type="radio" name="exp03" value="val03" />
+													<div class="radio__frame">
+													<span class="radio__control" aria-hidden="true"></span>
+													<span class="radio__text">상담사 연결없이 직접 처리 가능 여부 문장이 길어졌을 경우 어떻게 보이는지를 위해서 글자를 늘인 예시</span>
+													</div>
+												</label>
+												<label class="radio">
+													<input type="radio" name="exp03" value="val04" />
+													<div class="radio__frame">
+													<span class="radio__control" aria-hidden="true"></span>
+													<span class="radio__text">기타</span>
+													</div>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- card: 문항 1SET -->
+							<div class="card svInform">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn asterisk">
+											<!-- @@@퍼블공지@@@ 
+												필수 표시할 경우 asterisk클래스 추가 / 필수 아닐경우 제거
+												필수 표시 : <div class="sv-box qstn asterisk">
+												필수 아닐시 : <div class="sv-box qstn">
+											-->
+											<span class="sv-num ">4.</span>
+											<span class="sv-qstn">
+												위와 같이 평가하게 된 이용 경함을 구체적으로 말씀해주세요.
+											</span>
+										</div>
+
+										<div class="sv-box answr">
+											<div class="input-control">
+												<div class="textarea-group">
+													<div class="textarea-box">
+														<textarea class="c-textarea" placeholder="내용을 입력해 주세요" title="내용을 입력해 주세요" rows="4" maxlength="201" ></textarea> 
+														<div class="textarea-info">
+															<p class="textarea-limit" tabindex="-1" >
+																<span><span class="limit-point">0</span>/200자</span>
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>													
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- ver1-->
+							<!-- @@@퍼블공지@@@ 
+								만족도 평가 flag 디자인
+								영역 최상단에 표시
+								<div class="flag flag-line primary mt-40">
+							-->
+							<div class="flag flag-line primary mt-40">
+								<span class="txt">만족도 평가 2</span>
+							</div>
+							<!-- card: 문항 1SET -->
+							<div class="card svInform">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn asterisk">
+											<!-- @@@퍼블공지@@@ 
+												필수 표시할 경우 asterisk클래스 추가 / 필수 아닐경우 제거
+												필수 표시 : <div class="sv-box qstn asterisk">
+												필수 아닐시 : <div class="sv-box qstn">
+											-->
+											<span class="sv-num ">5.</span>
+											<span class="sv-qstn">
+												홈(인터넷, IPTV) 고객센터 보이는 ARS 서비스를 가족이나 주변 지인에게 추천하겠습니까?
+											</span>
+										</div>
+										<div class="sv-box answr">
+											<!-- 점수 선택: 라디오 그룹 -->
+											<div class="rating-wrap">
+												<div class="rating-box">
+													<!-- @@@퍼블공지@@@ 
+														문항 개수에 따라 rating의 스타일에 있는 변수 바꿔줌
+														<예시>
+														문항 11개일 경우 : <div class="rating" style="--count:11" >
+														문항 5개일 경우 : <div class="rating" style="--count:5" >
+													-->
+													<div class="rating" style="--count:5" role="radiogroup02" aria-label="만족도 선택">
+													<!-- 같은 name이면 단일선택 + 키보드 화살표 이동 가능 -->
+														<label class="rating__item">
+															<input type="radio" name="exp04" value="0" aria-label="0점" />
+															<span class="rating__dot" aria-hidden="true">0</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp04" value="1" aria-label="1점" />
+															<span class="rating__dot" aria-hidden="true">1</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp04" value="2" aria-label="2점"/>
+															<span class="rating__dot" aria-hidden="true">2</span>
+														</label>
+														<label class="rating__item">
+															<input type="radio" name="exp04" value="3" aria-label="3점"/>
+															<span class="rating__dot" aria-hidden="true">3</span>
+														</label>
+														<label class="rating__item">
+															<!-- @@@퍼블공지@@@ 
+																체크 상태일 경우 input에 checked 되어 있음
+																<input type="radio" name="exp02" value="10" aria-label="10점" checked/>
+															-->
+															<input type="radio" name="exp04" value="4" aria-label="4점" checked/>
+															<span class="rating__dot" aria-hidden="true">4</span>
+														</label>
+													</div>
+												</div>
+												<div class="rating__info">
+													<span class="rating-low">전혀<br>아니다</span>
+													<span class="rating-high">매우<br>그렇다</span>
+												</div>		
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- card: 문항 1SET -->
+							<div class="card svInform">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn">
+											<!-- @@@퍼블공지@@@ 
+												필수 표시할 경우 asterisk클래스 추가 / 필수 아닐경우 제거
+												필수 표시 : <div class="sv-box qstn asterisk">
+												필수 아닐시 : <div class="sv-box qstn">
+											-->
+											<span class="sv-num">6.</span>
+											<span class="sv-qstn">
+												위와 같이 평가하시게 된 주된 이유는 무엇입니까?
+											</span>
+										</div>
+										<div class="sv-box answr">
+											<div class="radio-group" role="radiogroup03" aria-label="경험 여부">
+												<label class="radio" id="val010">
+													<input type="radio" name="exp05" value="val010" for="val010" />
+													<div class="radio__frame">
+													<span class="radio__control" aria-hidden="true"></span>
+													<span class="radio__text">안내 내용의 이해도</span>
+													</div>
+												</label>
+
+												<label class="radio" id="val011">
+													<input type="radio" name="exp05" value="val11" for="val011" />
+													<div class="radio__frame">
+													<span class="radio__control" aria-hidden="true"></span>
+													<span class="radio__text">사용 편의성</span>
+													</div>
+												</label>
+												<label class="radio" id="val012">
+													<input type="radio" name="exp05" value="val12" for="val012"/>
+													<div class="radio__frame">
+													<span class="radio__control" aria-hidden="true"></span>
+													<span class="radio__text">상담사 연결없이 직접 처리 가능 여부 문장이 길어졌을 경우 어떻게 보이는지를 위해서 글자를 늘인 예시</span>
+													</div>
+												</label>
+												<label class="radio" id="val013">
+													<input type="radio" name="exp05" value="val13"for="val013"  />
+													<div class="radio__frame">
+													<span class="radio__control" aria-hidden="true"></span>
+													<span class="radio__text">기타</span>
+													</div>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- card: 문항 1SET -->
+							<div class="card svInform">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn asterisk">
+											<!-- @@@퍼블공지@@@ 
+												필수 표시할 경우 asterisk클래스 추가 / 필수 아닐경우 제거
+												필수 표시 : <div class="sv-box qstn asterisk">
+												필수 아닐시 : <div class="sv-box qstn">
+											-->
+											<span class="sv-num">7.</span>
+											<span class="sv-qstn">
+												위와 같이 평가하게 된 이용 경함을 구체적으로 말씀해주세요.
+											</span>
+										</div>
+										<div class="sv-box answr">
+											<div class="input-control">
+												<div class="textarea-group">
+													<!-- <label class="input-label">요청사항</label> -->
+													<div class="textarea-box">
+														<textarea class="c-textarea" placeholder="내용을 입력해 주세요" title="내용을 입력해 주세요" rows="4" maxlength="201" ></textarea> 
+														<div class="textarea-info">
+															<p class="textarea-limit" tabindex="-1" >
+																<span><span class="limit-point">0</span>/200자</span>
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>													
+										</div>
+									</div>
+								</div>
+							</div>							
+						</div>
+					</div>					
+
+				</div>
+			</div>
+			<div class="cont__wrap cont__wrap-btBtn">
+				<div class="btn-group flex-row is-confirm">
+					<!-- is-disable / 붙으면 비활성 
+					<button class="btn is-disabled" type="button">
+						<span class="txt">완료</span>
+					</button>
+					-->
+					<button class="btn is-disabled" type="button">
+						<span class="txt">완료</span>
+					</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			// 동의 라디오 선택 시 문항 열리고 버튼 활성화
+			const agree = document.querySelector('input[name="exp01"][value="val000"]');
+			const container = document.querySelector('.survey-container');
+			const submitBtn = document.querySelector('.btn.is-disabled');
+
+			if (!agree || !container || !submitBtn) return;
+
+			agree.addEventListener('change', () => {
+			if (agree.checked) {
+				container.classList.add('open');
+				submitBtn.classList.remove('is-disabled');
+			}
+			});
+		});
+	</script>
+
+</body>
+</html>

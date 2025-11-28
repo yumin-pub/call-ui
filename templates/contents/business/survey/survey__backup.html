@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<!-- Set the viewport. -->
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1.0">
+	<!-- Disable automatic phone number detection. -->
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<title>call ui</title>
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/common.css">
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/start.css">
+	<link rel="stylesheet" type="text/css" href="../../../../static/css/survey.css">
+
+	<!-- Scripts -->
+</head>
+<body>
+	<!-- ====== start page ====== -->
+	<div class="page-wrapper survey">
+		<!-- 타회선 조회시 multiProds에 multiProds 클래스 추가
+			<div class=" survey multiProds">
+		-->
+		<!-- header -->
+		<header class="header">
+			<div class="header__util">
+				<button type="button" class="btn btn-util end"><span>처음</span></button>
+			</div>
+		</header>
+		<!-- //header -->
+		<div class="container">
+			<div class="section__cont">
+				<!-- 상단 로고 & 타이틀 -->
+				<div class="cont__wrap cont__wrap-service">
+					<!--  라디오 버튼에서 동의함 누를 경우 open 클래스 붙음!! 
+						초기 인입시 open클래스 없이 인입
+						초기 인입 : <div class="accordion-container">
+						라디오 버튼 - 동의함 눌렀을 때 : <div class="accordion-container open">
+					-->
+					<div class="accordion-container open">
+						<div class="flag primary bo-ars">
+							<span class="txt">보이는 ARS 만족도 평가</span>
+						</div>
+						<!-- accordion-header : 동의함 문구가 상시 들어감!! 
+							
+						-->
+						<div class="accordion-header">
+							<!-- 아코디언버튼, 동의 항목 -->
+							<!-- card-body: 문항 1SET -->
+							<div class="card svInform bo-ars">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn">
+											<p class="sv-qstnMark asterisk">Q.&nbsp;<span>01</span></p>
+											<!-- <span class="sv-num"></span> -->
+											<span class="sv-qstn"><strong>개인정보 수집 및 이용 동의</strong><br>
+												L 서비스 개선을 위해 본인의 개인정보를 다음과 같이 수집 및 이용합니다. 고객님은 설문 동의를 거부할 권리가 있으나, 거부하실 경우 설문조사 진행이 어려운 점 양해 부탁드립니다.
+												<table class="table-bullet-desc">
+													<tr>
+														<th scope="col">수집 및 이용 목적</th>
+														<td>서비스 개선을 위한 설문</td>
+													</tr>
+													<tr>
+														<th scope="col">수집 및 이용 항목</th>
+														<td>휴대전화번호, 이름</td>
+													</tr>
+													<tr>
+														<th scope="col">보관 및 이용 기간</th>
+														<td>설문 종료 후 6개월까지</td>
+													</tr>
+												</table>
+											</span>
+										</div>
+										<div class="sv-box answr">
+											<div class="plan-wrap">
+												<div class="list-plan line">
+													<!-- checked 상태 -->
+													<div class="row">
+														<span class="radio">
+															<input type="radio" class="radio__input" name="group01" id="radio01">
+															<label for="radio01" class="radio__label-wrap">
+																<span class="radio__icon"></span>
+																<span class="radio__label">동의함</span>
+															</label>
+														</span>
+													</div>
+													<div class="row">
+														<span class="radio">
+															<input type="radio" class="radio__input" name="group01" id="radio02">
+															<label for="radio02" class="radio__label-wrap">
+																<span class="radio__icon"></span>
+																<span class="radio__label">동의하지 않음</span>
+															</label>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- accordion-content : 상시 바뀌는 문항 들어감 -->
+						<div class="accordion-content">
+							<!-- card-body: 문항 1SET -->
+							<div class="card svInform bo-ars">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn">
+											<div class="item svItem">
+												<div class="sv-box qstn">
+													<!-- 필수 표시할 경우 'asterisk class 추가 / 필수 아닐경우 제거
+														<p class="sv-qstnMark ">
+													-->
+													<p class="sv-qstnMark asterisk">Q.&nbsp;<span>02</span></p>
+													<!-- <span class="sv-num"></span> -->
+													<span class="sv-qstn">
+														홈(인터넷, IPTV) 고객센터 보이는 ARS 서비스를 가족이나 주변 지인에게 추천하겠습니까?
+													</span>
+												</div>
+												<div class="sv-box answr">
+													<div class="score-box">
+														<div class="score-slide" style="--steps:10;">
+														<div class="row">
+															<span class="score-low">전혀<br>아니다</span>
+															<span class="score-high">매우<br>그렇다</span>
+														</div>
+														<input
+															type="range" min="1" max="10" step="1"
+															class="range-custom"
+															style="--min:1; --max:10; --val:4;"
+															oninput="this.style.setProperty('--val', this.value);
+																	this.closest('.score-slide').style.setProperty('--steps', this.max)">
+
+														<div class="scale-line"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="sv-box answr"></div>
+									</div>
+								</div>
+							</div>
+							<!-- card-body: 문항 1SET -->
+							<div class="card svInform bo-ars">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn">
+											<div class="item svItem">
+												<div class="sv-box qstn">
+													<!-- 필수 표시할 경우 >>asterisk<< class 추가 / 필수 아닐경우 제거
+														<p class="sv-qstnMark ">
+													-->
+													<p class="sv-qstnMark">Q.&nbsp;<span>03</span></p>
+													<!-- <span class="sv-num"></span> -->
+													<span class="sv-qstn">
+														위와 같이 평가하시게 된 주된 이유는 무엇입니까?
+													</span>
+												</div>
+												<div class="sv-box answr">
+													<div class="plan-wrap">
+														<div class="list-plan line">
+															<!-- checked 상태 -->
+															<div class="row">
+																<span class="radio">
+																	<input type="radio" class="radio__input" name="group01" id="radio01">
+																	<label for="radio01" class="radio__label-wrap">
+																		<span class="radio__icon"></span>
+																		<span class="radio__label">안내 내용의 이해도</span>
+																	</label>
+																</span>
+															</div>
+															<div class="row">
+																<span class="radio">
+																	<input type="radio" class="radio__input" name="group01" id="radio02">
+																	<label for="radio02" class="radio__label-wrap">
+																		<span class="radio__icon"></span>
+																		<span class="radio__label">사용 편의성</span>
+																	</label>
+																</span>
+															</div>
+															<div class="row">
+																<span class="radio">
+																	<input type="radio" class="radio__input" name="group01" id="radio02">
+																	<label for="radio02" class="radio__label-wrap">
+																		<span class="radio__icon"></span>
+																		<span class="radio__label">상담사 연결없이 직접 처리 가능 여부 상담사 연결없이 직접 처리 가능 여부 상담사 연결없이 직접 처리 가능 여부</span>
+																	</label>
+																</span>
+															</div>
+															<div class="row">
+																<span class="radio">
+																	<input type="radio" class="radio__input" name="group01" id="radio02">
+																	<label for="radio02" class="radio__label-wrap">
+																		<span class="radio__icon"></span>
+																		<span class="radio__label">기타</span>
+																	</label>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="sv-box answr"></div>
+									</div>
+								</div>
+							</div>
+							<!-- card-body: 문항 1SET -->
+							<div class="card svInform bo-ars">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn">
+											<div class="item svItem">
+												<div class="sv-box qstn">
+													<!-- 필수 표시할 경우 >>asterisk<< class 추가 / 필수 아닐경우 제거
+														<p class="sv-qstnMark ">
+													-->
+													<p class="sv-qstnMark">Q.&nbsp;<span>04</span></p>
+													<!-- <span class="sv-num"></span> -->
+													<span class="sv-qstn">
+														위와 같이 평가하게 된 이용 경함을 구체적으로 말씀해주세요.
+													</span>
+												</div>
+												<div class="sv-box answr">
+													<div class="input-control">
+														<div class="textarea-group">
+															<!-- <label class="input-label">요청사항</label> -->
+															<div class="textarea-box">
+																<textarea class="c-textarea" placeholder="요청사항을 입력해 주세요" title="요청사항을 입력해 주세요" rows="4" maxlength="201" ></textarea> 
+																<div class="textarea-info">
+																	<p class="textarea-limit" tabindex="-1" >
+																		<span><span class="limit-point">0</span>/200자</span>
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>													
+												</div>
+											</div>
+										</div>
+										<div class="sv-box answr"></div>
+									</div>
+								</div>
+							</div>
+
+							<!-- 2 -->
+							<div class="flag dangu mt-40 u-plus">
+								<span class="txt">만족도 평가 2</span>
+							</div>
+							<!-- card-body: 문항 1SET -->
+							<div class="card svInform u-plus">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn">
+											<div class="item svItem">
+												<div class="sv-box qstn">
+													<!-- 필수 표시할 경우 'asterisk class 추가 / 필수 아닐경우 제거
+														<p class="sv-qstnMark ">
+													-->
+													<p class="sv-qstnMark asterisk">Q.&nbsp;<span>05</span></p>
+													<!-- <span class="sv-num"></span> -->
+													<span class="sv-qstn">
+														홈(인터넷, IPTV) 고객센터 보이는 ARS 서비스를 가족이나 주변 지인에게 추천하겠습니까?
+													</span>
+												</div>
+												<div class="sv-box answr">
+													<div class="score-box">
+														<div class="score-slide" style="--steps:5;">
+														<div class="row">
+															<span class="score-low">전혀<br>아니다</span>
+															<span class="score-high">매우<br>그렇다</span>
+														</div>
+														<input
+															type="range" min="1" max="5" step="1"
+															class="range-custom"
+															style="--min:1; --max:5; --val:4;"
+															oninput="this.style.setProperty('--val', this.value);
+																	this.closest('.score-slide').style.setProperty('--steps', this.max)">
+
+														<div class="scale-line"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="sv-box answr"></div>
+									</div>
+								</div>
+							</div>
+							<!-- card-body: 문항 1SET -->
+							<div class="card svInform u-plus">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn">
+											<div class="item svItem">
+												<div class="sv-box qstn">
+													<!-- 필수 표시할 경우 >>asterisk<< class 추가 / 필수 아닐경우 제거
+														<p class="sv-qstnMark ">
+													-->
+													<p class="sv-qstnMark">Q.&nbsp;<span>06</span></p>
+													<!-- <span class="sv-num"></span> -->
+													<span class="sv-qstn">
+														위와 같이 평가하시게 된 주된 이유는 무엇입니까?
+													</span>
+												</div>
+												<div class="sv-box answr">
+													<div class="plan-wrap">
+														<div class="list-plan line">
+															<!-- checked 상태 -->
+															<div class="row">
+																<span class="radio">
+																	<input type="radio" class="radio__input" name="group01" id="radio01">
+																	<label for="radio01" class="radio__label-wrap">
+																		<span class="radio__icon"></span>
+																		<span class="radio__label">안내 내용의 이해도</span>
+																	</label>
+																</span>
+															</div>
+															<div class="row">
+																<span class="radio">
+																	<input type="radio" class="radio__input" name="group01" id="radio02">
+																	<label for="radio02" class="radio__label-wrap">
+																		<span class="radio__icon"></span>
+																		<span class="radio__label">사용 편의성</span>
+																	</label>
+																</span>
+															</div>
+															<div class="row">
+																<span class="radio">
+																	<input type="radio" class="radio__input" name="group01" id="radio02">
+																	<label for="radio02" class="radio__label-wrap">
+																		<span class="radio__icon"></span>
+																		<span class="radio__label">상담사 연결없이 직접 처리 가능 여부 상담사 연결없이 직접 처리 가능 여부 상담사 연결없이 직접 처리 가능 여부</span>
+																	</label>
+																</span>
+															</div>
+															<div class="row">
+																<span class="radio">
+																	<input type="radio" class="radio__input" name="group01" id="radio02">
+																	<label for="radio02" class="radio__label-wrap">
+																		<span class="radio__icon"></span>
+																		<span class="radio__label">기타</span>
+																	</label>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="sv-box answr"></div>
+									</div>
+								</div>
+							</div>
+							<!-- card-body: 문항 1SET -->
+							<div class="card svInform u-plus">
+								<div class="card-body">
+									<div class="item svItem">
+										<div class="sv-box qstn">
+											<div class="item svItem">
+												<div class="sv-box qstn">
+													<!-- 필수 표시할 경우 >>asterisk<< class 추가 / 필수 아닐경우 제거
+														<p class="sv-qstnMark ">
+													-->
+													<p class="sv-qstnMark">Q.&nbsp;<span>07</span></p>
+													<!-- <span class="sv-num"></span> -->
+													<span class="sv-qstn">
+														위와 같이 평가하게 된 이용 경함을 구체적으로 말씀해주세요.
+													</span>
+												</div>
+												<div class="sv-box answr">
+													<div class="input-control">
+														<div class="textarea-group">
+															<!-- <label class="input-label">요청사항</label> -->
+															<div class="textarea-box">
+																<textarea class="c-textarea" placeholder="요청사항을 입력해 주세요" title="요청사항을 입력해 주세요" rows="4" maxlength="201" ></textarea> 
+																<div class="textarea-info">
+																	<p class="textarea-limit" tabindex="-1" >
+																		<span><span class="limit-point">0</span>/200자</span>
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>													
+												</div>
+											</div>
+										</div>
+										<div class="sv-box answr"></div>
+									</div>
+								</div>
+							</div>							
+						</div>
+					</div>					
+
+				</div>
+			</div>
+			<div class="cont__wrap cont__wrap-btBtn">
+				<div class="btn-group flex-row is-confirm">
+					<!-- <button class="btn line" type="button">
+						<span class="txt">다음에 하기</span>
+					</button> -->
+					<button class="btn" type="button">
+						<span class="txt">완료</span>
+					</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

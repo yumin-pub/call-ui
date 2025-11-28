@@ -1,0 +1,201 @@
+@charset "UTF-8";
+/* 인증번호 불일치시 서비스 종료 화면 */
+body {
+	background-color: var(--dt-gray05);
+}
+
+.page-wrapper {
+	height: 100%;
+}
+.page-wrapper .container {
+	height: 100%;
+}
+.page-wrapper .container .section__cont {
+	height: 100%;
+	justify-content: space-between;
+}
+.page-wrapper .container .section__cont:first-child {
+	padding-top: 0;
+}
+
+.cont__wrap:first-child {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	row-gap: 18px;
+	padding-top: 0;
+}
+.cont__wrap:last-child {
+	display: flex;
+	flex-direction: column;
+	row-gap: 102px;
+	padding-bottom: 50px;
+}
+.cont__wrap.callEnd {
+	padding-top: 12vh;
+	padding-bottom: 6vh;
+}
+.cont__wrap.callEnd .img-box {
+	min-width: 68px;
+	width: 68px;
+	height: 68px;
+}
+.cont__wrap .cont__wrap {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	row-gap: 62px;
+}
+.cont__wrap .device-txt {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.4;
+	color: var(--dt-gray11);
+	text-align: center;
+	margin-bottom: 18px;
+}
+.cont__wrap .device-tit {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.4;
+	color: var(--dt-black);
+	text-align: center;
+	margin-bottom: 8px;
+}
+.cont__wrap .device-box {
+	position: relative;
+}
+.cont__wrap .scrolled {
+	min-width: 300px;
+	width: 300px;
+	height: 150px;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	top: -150px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-image: url(../images/img/img-aos-scrolled.png);
+	animation: bg-fade 3s linear infinite;
+}
+.cont__wrap .device-wrap {
+	min-width: 300px;
+	width: 300px;
+	height: 150px;
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.cont__wrap .device-wrap.aos::before {
+	content: "";
+	display: block;
+	min-width: 300px;
+	width: 300px;
+	height: 146px;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: 300px 146px;
+	background-position: center center;
+	top: 0;
+	left: 0;
+	background-image: url(../images/img/img-aos-scrolling.svg);
+	animation: bg-change 3s linear infinite;
+	opacity: 0;
+}
+.cont__wrap .device-wrap.aos::after {
+	content: "";
+	display: block;
+	min-width: 300px;
+	width: 300px;
+	height: 146px;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: 300px 146px;
+	background-position: center center;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	will-change: opacity;
+	background-image: url(../images/img/img-aos-scrolled.svg);
+	animation: bg-fade 3s linear infinite;
+}
+.cont__wrap .device-wrap.aos .finger-tip {
+	width: 131px;
+	height: 131px;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	top: -7px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-image: url(../images/img/finger-tip.png);
+	animation: finger-scroll 3s linear infinite;
+}
+.cont__wrap .device-wrap.ios {
+	background-image: url(../images/img/img-ios-scroll.png);
+	height: 146px;
+}
+
+/* ──────────────────────────────── */
+/* 손가락 애니메이션               */
+/* ──────────────────────────────── */
+@keyframes finger-scroll {
+	0% {
+		top: -7px;
+		opacity: 1;
+	}
+	20% {
+		top: 0px; /* 손가락 내려가는 거리 */
+		opacity: 1;
+	}
+	40% {
+		top: 60px; /* 손가락 내려가는 거리 */
+		opacity: 1;
+	}
+	65% {
+		top: 60px;
+		opacity: 0; /* 사라지기 */
+	}
+	100% {
+		top: 0;
+		opacity: 0;
+	}
+}
+/* ──────────────────────────────── */
+/* 배경 전환 애니메이션             */
+/* ──────────────────────────────── */
+@keyframes bg-change {
+	0%, 50% {
+		opacity: 1;
+	}
+	50%, 60% {
+		opacity: 0.7;
+	}
+	61%, 65% {
+		opacity: 0;
+	}
+	66%, 100% {
+		opacity: 0;
+	}
+}
+/* 페이드 전환용 before */
+@keyframes bg-fade {
+	0%, 60% {
+		opacity: 0;
+	} /* 0~1.5초 첫 화면 */
+	61%, 65% {
+		opacity: 0.5;
+	} /* 1.5~2초 전환 중 */
+	66%, 70% {
+		opacity: 0.75;
+	}
+	71%, 100% {
+		opacity: 1;
+	} /* 2~3초 유지 */
+}

@@ -1,0 +1,169 @@
+
+.container {
+	.section__cont {
+		&.summary {
+			padding: 64px 0 18px;
+			gap: 9px;
+		}
+	}
+}
+
+.section__cont {
+	&.summary {
+		background-color: var(--dt-white);
+		.cont__wrap {
+			@include flexColum;
+			gap: 6px;
+			position: relative;
+			height: max-content;
+			min-height: 130px;
+			padding: 0 20px;
+			background-repeat: no-repeat;
+			background-size: 120px;
+			background-position: right 5px bottom -12px;
+			.info-price-wrap {
+				.info-price, .info-price-detail {
+					&.total-last {
+						.row {margin-top: 4px;}
+					}
+				}
+			}			
+		}
+		.cont__wrap-bill { /* 청구요금 자녀요금 청구서받는방법 , 홀맨 + 편지지 */
+			background-image: url(../images/img/img-hm-bill.png);
+		}
+		.cont__wrap-realtime { /* 실시간요금, 홀맨 + 동전 */
+			background-image: url(../images/img/img-hm-realtime.png);
+		}
+		.cont__wrap-usestate { /* 실시간 사용량 , 홀맨 + 원형그래프 */
+			background-image: url(../images/img/img-hm-usestate.png);
+		}
+		.cont__wrap-account { /* 바로납부-입금전용계좌, 홀맨 + 반지갑,동전 */
+			background-image: url(../images/img/img-hm-account.png);
+		}
+		.cont__wrap-payment { /* 요금납부방법, 홀맨 + 카드2개,동전 */
+			background-image: url(../images/img/img-hm-automatic-withdrawal.png);
+		}
+		.cont__wrap-pauseTemp { /* 일시정지, 홀맨 + 휴대폰,일시정지아이콘 */
+			background-image: url(../images/img/img-hm-pauseTemp.png);
+		}
+		.cont__wrap-MOPaymentUsed { /* 휴대폰결제 외 공통, 홀맨 + 휴대폰,카드 */
+			background-image: url(../images/img/img-hm-MOpayment.png);
+		}
+		.cont__wrap-plan { /* 나의요금제, 홀맨 + 카드지갑,동전 */
+			background-image: url(../images/img/img-hm-myplan.png);
+		}
+		.cont__wrap-realtimeRoaming { /* 실시간로밍 , 홀맨 + 비행기 */
+			background-image: url(../images/img/img-hm-roaming.png);
+		}
+		.cont__wrap-roamingUsed { /* 로밍이용내역 , 홀맨 + 비행기 */
+			background-image: url(../images/img/img-hm-roaming.png);
+		} 
+		.cont__wrap-dataGift { /* 데이터기프트 */
+			background-image: url(../images/img/img-hm-dataGift.png); 
+		}
+		.txt-select-wrap {
+			@include flexRow;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 4px;
+			color: var(--dt-gray16);
+			.txt {
+				line-height: 1.5;
+			}
+			&:has(.chips-date + .txt) {
+				> .txt {
+					@include fw-6(18px);
+					line-height: 1.2;
+				}
+			}
+			.chips-date {
+				background-color: var(--dt-gray02);
+				.txt {
+					@include fw-6(18px);
+					line-height: 1.2;
+				}
+			}
+		}
+		.txt {
+			&.price {
+				width: calc(100% - 70px);
+				@include flexRow;
+				align-items: center;
+				flex-wrap: wrap;
+				@include fw-6(18px);
+				row-gap: 4px;
+				.deco {
+					@include fw-7(30px);
+					line-height: 1.2;
+					margin-right: 2px;
+				}
+				.deco-sub {
+					@include fw-7(22px);
+					line-height: 1.5;
+					margin-right: 2px;
+				}
+				.color-prim {
+					@include fw-7(22px);
+					line-height: 1.5;
+				}
+				.txt {
+					line-height: 1.5;
+				}
+				&:has(.deco),
+				&:has(.color-prim) {
+					color: var(--dt-gray14);
+				}
+				&:has(.deco + .color-prim) {
+					color: var(--dt-gray14);
+					.color-prim {
+						@include fw-6(18px);
+						line-height: 1.2;						
+					}
+				}
+				.txt-sub {
+					width:100%;
+					font-size:16px;color:var(--dt-black);
+				}
+			}
+		}
+		// 툴팁 있는 경우
+		.btn-tooltip {
+			margin-left: 2px;
+			img { width:20px; height:20px;}
+		}
+		.tooltip-wrap {
+			max-width: 280px;
+		}
+	}
+}
+/* 25.11.04 타회선 조회 셀렉박스 추가 요건 : 헤더 밑 패딩 간격 늘림 */
+.multiProds {
+	&.main {
+		.container {
+			.section__cont {
+				&.summary {
+					padding-top: 20px !important;
+					gap: 9px;
+				}
+			}
+		}
+	} 
+	.container {
+		.section__cont {
+			&.summary {
+				padding-top: 104px !important;
+				gap: 9px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 280px) {
+	.section__cont {
+		&.summary {
+			.cont__wrap {
+				min-height: 146px;
+			}
+		}
+	}
+}

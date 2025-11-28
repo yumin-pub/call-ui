@@ -1,0 +1,330 @@
+.dataGift .cont__wrap-service {
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+}
+.dataGift .service-wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+.dataGift .service-wrap .con__tit-box {
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: unset;
+}
+.dataGift .service-wrap .con__tit-box .tit-tail {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--dt-gray10);
+}
+.dataGift .service-wrap .con__tit-box .tit-tail::before {
+	content: "";
+	display: inline-block;
+	width: 1px;
+	height: 12px;
+	background-color: var(--dt-gray10);
+	margin: 0 8px;
+}
+.dataGift .btn-between {
+	justify-content: space-between;
+	padding: 16px;
+	border-radius: 8px;
+}
+.dataGift .btn-between .txt-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	row-gap: 6px;
+}
+.dataGift .btn-between .txt-wrap .txt-head {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.5;
+	color: var(--dt-gray16);
+}
+.dataGift .btn-between .txt-wrap .txt {
+	font-size: 14px;
+}
+.dataGift .phoneList {
+	grid-template-columns: repeat(1, 1fr);
+	gap: 12px;
+}
+.dataGift .phoneList .card {
+	padding: 14px 20px;
+}
+.dataGift .phoneList .card .item {
+	gap: 12px;
+}
+.dataGift .phoneList .card .item:has(.add-txt) {
+	justify-content: center;
+}
+.dataGift .phoneList .card .item .tit {
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--dt-gray16);
+}
+.dataGift .phoneList .card .item .txt {
+	font-size: 16px;
+	color: var(--dt-gray12);
+	margin-left: unset;
+}
+.dataGift .phoneList .card .item .txt.add-txt {
+	font-size: 14px;
+	text-align: center;
+}
+.dataGift .phoneList .card .item .data {
+	position: relative;
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--dt-primary);
+	padding-left: 6px;
+}
+.dataGift .phoneList .card .item .data::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	display: inline-block;
+	width: 1px;
+	height: 14px;
+	background-color: var(--dt-gray06);
+}
+.dataGift .phoneList .card .card-footer .close {
+	width: 24px;
+	height: 24px;
+	background-image: url(../images/icon/ic-card_close_small_line.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.dataGift .coupon-wrap {
+	display: flex;
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	row-gap: 16px;
+	margin-top: 24px;
+}
+.dataGift .coupon-wrap .img-box {
+	width: 75%;
+	max-width: 250px;
+	min-width: 200px;
+}
+.dataGift .coupon-wrap .txt-box {
+	color: var(--dt-gray16);
+	font-size: 14px;
+	font-weight: 600;
+}
+.dataGift .coupon-wrap .txt-box .txt-tit {
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.2;
+	color: var(--dt-gray12);
+}
+.dataGift .coupon-wrap .txt-box .color-prim {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.5;
+	color: var(--dt-primary);
+}
+.dataGift .data-box {
+	display: flex;
+	flex-direction: column;
+	margin-top: 24px;
+	padding: 0 8px;
+}
+.dataGift .data-box .data {
+	color: var(--dt-primary);
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+.dataGift .data-box .data-slide {
+	display: flex;
+	flex-direction: column;
+	margin-top: 4px;
+}
+.dataGift .data-box .data-slide .row {
+	display: flex;
+	justify-content: space-between;
+	color: var(--dt-gray13);
+	font-size: 14px;
+	font-weight: 500;
+	margin: 4px 0 15px;
+}
+.dataGift .data-box .data-slide .range-custom {
+	width: 100%;
+	height: 6px;
+	position: relative;
+	border-radius: 6px;
+	background: var(--dt-gray03);
+	appearance: none;
+	z-index: 1;
+}
+.dataGift .data-box .data-slide .range-custom::-webkit-slider-runnable-track {
+	background: transparent;
+}
+.dataGift .data-box .data-slide .range-custom::-webkit-slider-thumb {
+	appearance: none;
+	width: 32px;
+	height: 32px;
+	border: 1px solid var(--dt-gray08);
+	border-radius: 50%;
+	box-shadow: -3px 1px 7px 0 rgba(0, 0, 0, 0.16);
+	background-color: var(--dt-white);
+	cursor: pointer;
+}
+.dataGift .data-box .data-slide .scale-line {
+	display: flex;
+	justify-content: space-between;
+	margin: 9px 16px 0;
+	height: 6px;
+}
+.dataGift .data-box .data-slide .scale-line > * {
+	position: relative;
+	z-index: 0;
+	height: 6px;
+}
+.dataGift .data-box .data-slide .scale-line > *::before {
+	display: block;
+	width: 2px;
+	height: 6px;
+	border-radius: 4px;
+	background: #bbb;
+	content: "";
+}
+.dataGift .data-box .data-slide .scale-line > *:first-child::before, .dataGift .data-box .data-slide .scale-line > *:last-child::before {
+	content: none;
+}
+.dataGift .listGift {
+	gap: 12px;
+	padding: 20px;
+}
+.dataGift .listGift .gift-date {
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 18px;
+	color: var(--dt-gray11);
+}
+.dataGift .listGift .card-body {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+.dataGift .listGift .card-body:not(:last-child) {
+	padding-bottom: 12px;
+	border-bottom: 1px solid var(--dt-gray06);
+}
+.dataGift .listGift .card-body .gift-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.dataGift .listGift .card-body .gift-info .used-name {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.5;
+	color: var(--dt-gray14);
+}
+.dataGift .listGift .card-body .gift-info .used-won {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.5;
+	color: var(--dt-black);
+	text-align: right;
+	flex: 1;
+}
+.dataGift .listGift .card-body .gift-info .flag {
+	padding: 6px 10px;
+}
+.dataGift .listGift .card-body .gift-info .flag .txt {
+	line-height: 1.5;
+	letter-spacing: -0.5px;
+	font-size: 13px;
+}
+.dataGift .listGift .card-body .gift-info .txt-sub {
+	font-size: 13px;
+	line-height: 1.5;
+	margin-top: 0;
+}
+.dataGift .listGift .card-body .gift-info .txt-sub .sub-tel::before {
+	content: "";
+	display: inline-block;
+	width: 1px;
+	height: 12px;
+	background-color: var(--dt-gray10);
+	margin: 0 8px;
+	transform: translateY(2px);
+}
+.dataGift .sendData {
+	flex-direction: column;
+	align-items: flex-start;
+	border: 1px solid var(--dt-gray17);
+	background-color: var(--dt-white);
+	box-shadow: unset;
+	padding: 16px;
+	gap: 6px;
+}
+.dataGift .sendData .chips.chips-tag {
+	margin-left: auto;
+	min-height: 22px;
+	border: none;
+	background-color: var(--dt-gray11);
+	padding: 3px 12px;
+}
+.dataGift .sendData .chips.chips-tag .txt {
+	font-size: 11px;
+	color: var(--dt-white);
+}
+.dataGift .sendData .item.text {
+	gap: 4px;
+}
+.dataGift .sendData .item.text .tit {
+	font-size: 16px;
+}
+.dataGift .sendData .item.text .num {
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--dt-primary);
+}
+.dataGift .sendData .item.text .num .num-txt {
+	font-size: 14px;
+	font-weight: 500;
+}
+.dataGift .sendData.is-disabled {
+	background-color: var(--dt-gray17);
+}
+.dataGift .sendData.is-disabled:active {
+	box-shadow: none;
+}
+.dataGift .sendData.is-disabled .chips {
+	opacity: 0.6;
+}
+.dataGift .slct-control.combine-element .slct-box {
+	min-width: 120px;
+}
+.dataGift .slct-control.combine-element .slct-box .txt {
+	font-size: 16px;
+}
+.dataGift .slct-control.combine-element .slct-box.done .txt {
+	font-size: 14px;
+}
+.dataGift.multiProds .header__slctBtn .btn-between .txt-wrap {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.dataGift.multiProds .container .section__cont.summary {
+	padding-top: 104px !important;
+	gap: 9px;
+}
+
+.full-popup .cont__wrap-vertical {
+	gap: 28px;
+}

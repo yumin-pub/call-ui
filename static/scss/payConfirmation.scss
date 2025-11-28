@@ -1,0 +1,8 @@
+@import "../scss/base/mixin";
+.payConfirmation {
+	.input-row-wrap {
+		.input-control {
+			width:calc((100% - 30px) / 2);
+		}
+	}
+}

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<!-- Set the viewport. -->
+	<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1.0">
+	<!-- Disable automatic phone number detection. -->
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="theme-color" content="#ffffff">
+	<title>call ui</title>
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../../static/css/common.css">
+	
+	<!-- Scripts -->
+	<style>
+		ul {
+			margin: 30px 0;
+		} 
+		ul > li {
+			margin: 20px 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="page-wrapper" style="margin-top: 20px;">
+		<!-- header -->
+		<header class="header"></header>
+		<!-- //header -->
+	
+		<!-- container -->
+		<div class="container">
+			<div class="prototype-component-wrap">
+				<p style="margin-top:30px;font-size:18px;font-weight:600;">- Btn-group button util -</p>
+				<ul>
+					<li>
+						<h3>Large button :: solid</h3>
+					</li>
+					<!-- 
+						**single button 
+						**크기+색상+disable :  btn is-disabled / btn-prim:프라이머리(1레벨)버튼 / btn-sec:세컨더리(2레벨)버튼
+					-->	
+					<li>
+						<!-- ===== button Default ===== 
+						-->
+						<div class="btn-group">
+							<button class="btn" type="button">
+								<span class="txt">디폴트</span>
+							</button>
+							<button class="btn is-disabled" type="button" style="margin-top:10px;">
+								<span class="txt">디폴트 disabled</span>
+							</button>
+						</div>	
+					</li>
+					<li>
+						<!-- ===== button Primary ===== 
+						-->
+						<div class="btn-group">
+							<button class="btn btn-prim full" type="button">
+								<span class="txt">프라이머리(1레벨)</span>
+							</button>
+							<button class="btn btn-prim is-disabled" type="button" style="margin-top:10px;">
+								<span class="txt">프라이머리(1레벨) disabled</span>
+							</button>
+						</div>
+					</li>
+					<li>
+					<li>
+						<!-- ===== button Primary Full===== 
+						-->
+						<div class="btn-group">
+							<button class="btn btn-prim full" type="button">
+								<span class="txt">프라이머리(1레벨)</span>
+							</button>
+							<button class="btn btn-prim full is-disabled" type="button" style="margin-top:10px;">
+								<span class="txt">프라이머리(1레벨) disabled</span>
+							</button>
+						</div>
+					</li>
+					<li>
+						<!-- ===== button Secondary ===== 
+						-->			
+						<div class="btn-group">
+							<button class="btn btn-sec" type="button">
+								<span class="txt">세컨더리(2레벨)</span>
+							</button>
+							<button class="btn btn-sec is-disabled" type="button" style="margin-top:10px;">
+								<span class="txt">세컨더리(2레벨) disabled</span>
+							</button>
+						</div>			
+					</li>
+					<!-- //single button -->
+				</ul>
+				<ul>
+					<li>
+						<h3>Large button :: line</h3>
+					</li>
+					<!-- 
+						**single button 
+						**크기+색상+disable :  btn line
+					-->	
+					<li>
+						<!-- ===== line Default ===== 
+						-->
+						<div class="btn-group">
+							<button class="btn line" type="button">
+								<span class="txt">디폴트 라인버튼</span>
+							</button>
+							<button class="btn line is-disabled" type="button" style="margin-top:10px;">
+								<span class="txt">디폴트 라인버튼 disabled</span>
+							</button>
+						</div>	
+					</li>
+					<li>	
+						<!-- ===== line Primary ===== 
+						-->
+						<div class="btn-group">
+							<button class="btn btn-prim line" type="button">
+								<span class="txt">프라이머리 라인버튼</span>
+							</button>
+							<button class="btn btn-prim line is-disabled" type="button" style="margin-top:10px;">
+								<span class="txt">프라이머리 라인버튼 disabled</span>
+							</button>
+						</div>					
+					</li>
+						<!-- ===== line Secondary ===== 
+						-->			
+						<div class="btn-group">
+							<button class="btn btn-sec line" type="button">
+								<span class="txt">세컨더리 라인버튼</span>
+							</button>
+							<button class="btn btn-sec line is-disabled" type="button" style="margin-top:10px;">
+								<span class="txt">세컨더리 라인버튼 disabled</span>
+							</button>
+						</div>			
+					</li>
+					<!-- //single button -->
+				</ul>
+				<ul>
+					<li>
+						<h3>Medium button :: solid</h3>
+					</li>
+					<!-- 
+						**single button 
+						**크기+색상+disable :  btn btn-md
+					-->	
+					<li>
+						<!-- ===== Medium button default ===== 
+						-->
+						<div class="btn-group">
+							<button class="btn btn-md" type="button">
+								<span class="txt">디폴트</span>
+							</button>
+						</div>			
+					</li>
+					<li>
+						<!-- ===== Medium button default Primary ===== 
+						-->
+						<div class="btn-group">
+							<button class="btn btn-md btn-prim" type="button">
+								<span class="txt">프라이머리</span>
+							</button>
+						</div>
+					</li>
+					<li>
+						<!-- ===== Medium button default Secondary ===== 
+						-->			
+						<div class="btn-group">
+							<button class="btn btn-md btn-sec" type="button">
+								<span class="txt">세컨더리</span>
+							</button>
+						</div>					
+					</li>
+					<!-- //single button -->
+				</ul>
+				<ul>
+					<li>
+						<h3>Medium button :: line</h3>
+					</li>
+					<!-- 
+						**single button 
+						**크기+색상+disable :  btn btn-md line
+					-->	
+					<li>
+						<!-- ===== line Medium button default  =====
+						-->
+						<div class="btn-group">
+							<button class="btn btn-md line" type="button">
+								<span class="txt">디폴트 라인버튼</span>
+							</button>
+						</div>	
+					</li>
+					<li>	
+						<!-- ===== line Medium button primary  ===== 
+						-->
+						<div class="btn-group">
+							<button class="btn btn-md btn-prim line" type="button">
+								<span class="txt">프라이머리 라인버튼</span>
+							</button>
+						</div>					
+					</li>
+						<!-- ===== line Medium button secondary  =====
+						-->			
+						<div class="btn-group">
+							<button class="btn btn-md btn-sec line" type="button">
+								<span class="txt">세컨더리 라인버튼</span>
+							</button>
+						</div>			
+					</li>
+					<!-- //single button -->
+				</ul>
+	
+				<ul>
+					<li>
+						<h3>button grouped ::  Row</h3>
+					</li>
+					<li>
+						<!-- flex-row 다중버튼 -->
+						<div class="btn-group flex-row is-confirm">
+							<button class="btn btn-sec" type="button">
+								<span class="txt">취소</span>
+							</button>
+							<button class="btn" type="button">
+								<span class="txt">확인</span>
+							</button>
+						</div>
+						<div class="btn-group flex-row is-confirm" style="margin-top:10px;">
+							<button class="btn line" type="button">
+								<span class="txt">변경</span>
+							</button>
+							<button class="btn" type="button">
+								<span class="txt">해지</span>
+							</button>
+						</div>
+						<div class="btn-group flex-row"style="margin-top:10px;">
+							<button class="btn line" type="button">
+								<span class="txt">미리듣기</span>
+								<span class="img-box ht16">
+									<img src="../../static/images/icon/ic-btn-play.svg">
+								</span>
+							</button>
+							<button class="btn line" type="button">
+								<span class="txt">멘트 수정</span>
+								<span class="img-box ht16">
+									<img src="../../static/images/icon/ic-btn-write.svg">
+								</span>
+							</button>
+						</div>
+						<!-- //flex-row 다중버튼 -->
+					</li>
+
+					<li>
+						<li>
+							<h3>button grouped ::  Column</h3>
+						</li>
+						<!-- flex-column 다중버튼 -->
+						<div class="btn-group flex-column">
+							<button class="btn" type="button">
+								<span class="txt">버튼1</span>
+							</button>
+							<button class="btn line" type="button">
+								<span class="txt">버튼2</span>
+							</button>
+							<button class="btn line" type="button">
+								<span class="txt">가족/타인 명의 카드</span>
+								<span class="img-box">
+									<img src="../../static/images/icon/ic-btn-audio.svg">
+								</span>
+							</button>
+						</div>
+					</li>
+				</ul>
+				<p style="margin-top:30px;font-size:18px;font-weight:600;">- Single button util -</p>
+				<!-- 기능 button -->
+				<ul>
+					<li>
+						<h3>text+icon__토글</h3>
+					</li>
+					<li>
+						<div class="btn-group">
+							<button class="btn">
+								<span class="txt">간단히 보기</span>
+								<span class="img-box">
+									<img src="../../static/images/icon/ic-arrow-toggle.svg">
+								</span>
+							</button>
+						</div>
+					</li>
+					<li>
+						<h3>Top button</h3>
+					</li>
+					<li>      
+						<button class="btn-top" type="button"></button>
+					</li>
+					<li>
+						<h3>Scroll Button</h3>
+					</li>
+					<li>
+						<button class="btn-scroll">
+							<span class="txt">선택약정 할인 예약</span>
+							<span class="img-box">
+								<img src="../../static/images/icon/ic-arrowdouble-white.svg">
+							</span>
+						</button>
+					</li>
+
+					<li>
+						<h3>solid box button</h3>
+					</li>
+					<li>
+						<button class="btn btn-between bg-withdraw">
+							<span class="txt-wrap">
+								<span class="img-box ico20">
+									<img src="../../static/images/icon/ic-btn-dcmnt.svg" alt="">
+								</span>
+								<span class="txt">
+									00월 청구서
+								</span>
+							</span>
+							<span class="img-box ico20">
+								<img src="../../static/images/icon/ic-btn-arrow-right-sm.png">
+							</span>
+						</button>
+					</li>
+					<li>
+
+					</li>
+					<li>
+						<button class="btn btn-between bg-bank">
+							<span class="txt-wrap">
+								<span class="ico-bank shinhan"></span>
+								<span class="txt">123*-****-****-5678</span>
+							</span>
+							<span class="img-box">
+								<img src="../../static/images/icon/ic-btn-arrow-right-sm.png">
+							</span>
+						</button>
+					</li>
+					<li>
+						<h3>popup_solid icon button</h3>
+					</li>
+					<li>
+						<div class="popup-body">
+							<div class="btn-group flex-column">
+								<button class="btn btn-popSolid" type="button">
+									<span class="txt">텍스트</span>
+								</button>
+	
+								<button class="btn btn-popSolid" type="button">
+									<span class="txt">
+										텍스트
+										<span class="img-box ico20">
+											<img src="../../static/images/icon/ic-btn-audio.svg">
+										</span>
+									</span>
+								</button>
+	
+								<button class="btn btn-popSolid between" type="button">
+									<span class="txt">
+										텍스트
+										<span class="img-box ico20">
+											<img src="../../static/images/icon/ic-btn-audio.svg">
+										</span>
+									</span>
+								</button>
+	
+								<!-- 선택시 is-selected 클래스 붙음 -->
+								<button class="btn btn-popSolid between" type="button">
+									<!-- <button class="btn btn-icBox is-selected"> -->
+									<span class="txt">텍스트</span>
+									<!-- selected 되었을 때 나타나는 부분 -->
+									<span class="txt-wrap">
+										<span class="txt">텍스트</span>
+										<span class="img-box">
+											<img src="../../static/images/icon/ic-btn-chck.svg">
+										</span>
+									</span>
+								</button>
+	
+								<button class="btn btn-popSolid between is-selected" type="button">
+									<!-- <button class="btn btn-icBox is-selected"> -->
+									<span class="txt">텍스트</span>
+									<!-- selected 되었을 때 나타나는 부분 -->
+									<span class="txt-wrap">
+										<span class="txt">텍스트</span>
+										<span class="img-box">
+											<img src="../../static/images/icon/ic-btn-chck.svg">
+										</span>
+									</span>
+								</button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="btn-group">
+							<!-- default data btn -->
+							<button class="btn btn-remain-data" type="button">
+								<span class="txt-wrap">
+									<span class="txt">0GB</span>
+									<span class="txt">48,000원</span>
+								</span>
+							</button>
+
+							<!-- 선택시 is-selected 클래스 붙음 -->
+							<button class="btn btn-remain-data is-selected" type="button" style="margin-top:10px;">
+								<span class="txt-wrap">
+									<span class="txt">0GB</span>
+									<span class="txt">10,400원</span>
+								</span>
+							</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- //container -->
+	
+		<!-- footer -->
+		<footer class="footer"></footer>
+		<!-- //footer -->
+	</div>
+</body>
+</html>

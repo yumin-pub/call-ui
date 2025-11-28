@@ -1,0 +1,592 @@
+@import '../base/mixin';
+// card 그룹 필요시
+.card-group {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);  // 두 열로 구성
+	gap: 8px;  // 카드 사이의 간격
+	grid-auto-rows: 1fr;  // 각 카드의 높이가 동일하게 맞춰지도록 설정
+	&.threeby {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	&.flex-column {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+// card 기본
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background-color: var(--dt-white);
+	box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.04);
+	border-radius: 8px;
+	padding: 16px;
+	gap: 16px;
+	.card-header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: 8px;
+	}
+	.card-body {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.item {
+		display: flex;
+		&.util {
+			justify-content: space-between;
+			align-items: center;
+		}
+		&.text {
+			flex-direction: column;
+			gap: 8px;
+		}
+	}
+	.img-box {
+		width: 28px;
+		min-width: 28px;
+		height: 28px;
+		&.no-icon {
+			img {
+				display: none;
+			}
+		}
+	}
+	.tit {
+		@include fw-7();
+		line-height: 1.5;
+		color: var(--dt-gray16);
+		&.icon {
+			&::after {
+				display: inline-block;
+				content: "";
+				width: 20px;
+				min-width: 20px;
+				height: 20px;
+				background: no-repeat center / cover;
+				background-image: url(../images/icon/ic-card-headphone.svg);
+				margin-left: 4px;
+				margin-bottom: -4px;
+			}
+		}
+	}
+	.txt {
+		@include fw-5(14px);
+		line-height: 1.5;
+		color: var(--dt-gray11);
+	}
+	.card-footer {
+		display: flex;
+		margin-top: auto;
+		.btn-group {
+			flex: auto;
+		}
+		.btn {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.img-box {width:unset;min-width:unset;height:unset;}
+	}
+	&.center {
+		justify-content:center;
+		min-height: 130px;
+		padding: 20px;
+		.card-body {
+			align-items: center;
+		}
+		.img-box {
+			width: 40px;
+			min-width: 40px;
+			height: 40px;
+		}
+		.text-box {
+			.tit {
+				@include fw-6();
+			}
+		}
+		&.mentOn {
+			.text-box {
+				.txt {
+					color: var(--dt-gray16);
+				}
+			}
+		}
+		&.roamingNone {
+			padding: 30px 20px;
+			.card-body {
+				gap: 4px;
+			}
+		}
+	}
+	&[role=button] {
+		cursor: pointer;
+		&:active {
+			box-shadow: inset 0 0 0 300px rgba(0, 0, 0, 0.12);
+			.card-body,
+			.card-footer {
+				opacity: 0.6;
+			}
+		}
+	}
+	&.is-selected {
+		box-shadow: inset 0 0 0 300px rgba(0, 0, 0, 0.12);
+		.card-body,
+		.card-footer {
+			opacity: 0.6;
+		}
+	}
+	&.is-disabled {
+		box-shadow: inset 0 0 0 300px rgba(255, 255, 255, 0.6);
+		.card-body,
+		.card-footer {
+			opacity: 0.6;
+		}
+	}
+	&.is-disabled:active {
+		box-shadow: inset 0 0 0 300px rgba(255, 255, 255, 0.6);
+		.card-body,
+		.card-footer {
+			opacity: 0.6;
+		}
+	}
+
+	&.solid {
+		background-color: var(--dt-gray02);
+		box-shadow: none;
+	}
+	// sub:detail card (상담연결-챗봇/AI/전화 등)
+	&.detail {
+		background-color: var(--dt-white);
+		box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.04);
+		.card-body {
+		}
+		.item {
+			&.text {
+				gap: 0;
+			}
+		}
+		.tit {
+			font-size: 14px;
+		}
+		.txt {
+			@include fw-5(14px);
+		}
+		.card-footer {
+			justify-content: flex-end;
+			.btn-group {
+				flex: none;
+			}
+		}
+	}
+	&.horizon { 
+		align-items: center;
+		flex-direction: row;
+		padding: 23px 16px;
+		gap: 12px;
+		.con__tit-box {
+			width:100%;
+		}
+		.img-box {
+			width: 32px;
+			min-width: 32px;
+			height: 32px;
+		}
+		.card-body {
+			align-items: center;
+			flex-direction: row;
+			gap: 12px;
+		}
+		.item {
+			&.text {
+				gap: 0;
+			}
+		}
+		.tit {
+			font-size: 18px;
+		}
+		.card-footer {
+			margin-top: 0;
+			margin-left: auto;
+		}
+		&.solid {
+			padding: 18px 16px;
+			.card-body {
+				width: 100%;
+				gap: 8px;
+			}
+			.item {
+				&.text {
+					flex-direction: row;
+					align-items: center;
+					flex: 1;
+				}
+			}
+			.img-box {
+				width: 28px;
+				min-width: 28px;
+				height: 28px;
+			}
+			.tit {
+				@include fw-6();
+				color: var(--dt-gray12);
+			}
+			.txt {
+				margin-left: auto;
+			}
+		}
+	}
+	&.chatbot {
+		background-color: #FBDAED;
+		box-shadow: none;
+		.img-box {
+			width: 48px;
+			min-width: 48px;
+			height: 48px;
+		}
+		.card-footer {
+			.btn-group {
+				.btn {
+					width: max-content;
+					height: 34px;
+					padding: 10px 12px;
+				}
+			}
+		}
+	}
+	&.home {
+		background-color: #C3E4FE;
+		box-shadow: none;
+		.img-box {
+			width: 48px;
+			min-width: 48px;
+			height: 48px;
+		}
+		.card-footer {
+			.btn-group {
+				.btn {
+					width: max-content;
+					height: 34px;
+					padding: 10px 12px;
+				}
+			}
+		}
+	}
+	&.bank {
+		position: relative;
+		.card-header {
+			justify-content: flex-start;
+			align-items: start;
+		}
+		.ico-bank {
+			width: 20px;
+			min-width: 20px;
+			height: 20px;
+			margin-top:2px;
+		}
+		.item {
+			&.text {
+				gap: 0;
+			}
+			.txt {
+				color: var(--dt-gray13);
+			}
+		}
+		.card-footer {
+			.btn-group {
+				.btn {
+					background-color: var(--dt-gray06);
+					border-color: var(--dt-gray06);
+					.txt {
+						color: var(--dt-gray11);
+					}
+				}
+			}
+		}
+	}
+	&.banner {
+		position: relative;
+		padding: 15px 48px 15px 20px;
+		background-color: var(--dt-gray02);
+		box-shadow: none;
+		.img-box {
+			width: 36px;
+			min-width: 36px;
+			height: 36px;
+		}
+		.item {
+			&.text {
+				gap: 2px;
+			}
+		}
+		.tit {
+			@include fw-5(12px);
+			color: var(--dt-gray11);
+		}
+		.txt {
+			@include fw-7(14px);
+			color: var(--dt-gray14);
+		}
+	}
+	&.bank, &.banner {
+		.btn.end { // 엑스버튼
+			position: absolute;
+			top: 16px;
+			right: 16px;
+			width: 24px;
+			height: 24px;
+			text-indent: -9999px;
+			font-size:0;
+			background-image: url(../images/icon/ic-close24-gray10.svg);
+			background-repeat: no-repeat;
+			background-size: 24px 24px;
+			background-position: center center;
+		}
+	}
+	&.bill {
+		.item {
+			&.util {
+				flex-direction: row;
+				gap: 6px;
+			}
+			.flag {
+				padding: 1.5px 8px;
+				margin-left: auto;
+				.txt {
+					font-size: 12px;
+				}
+			}
+			.pay-txt {
+				@include fw-7();
+			}
+			.txt {
+				@include fw-5(12px);
+				color: var(--dt-gray11);
+				text-align: right;
+			}
+		}
+		.card-footer {
+			.btn-group {
+				.btn {
+					border-color: var(--dt-gray06);
+					.img-box {
+						width: 20px;
+						min-width: 20px;
+						height: 20px;
+					}
+				}
+			}
+		}
+	}
+	&.explain {
+		.flag {
+			padding: 2px 8px;
+			.txt {
+				@include fw-5(12px);
+			}
+		}
+	}
+	&.alert {
+		gap: 10px;
+		.img-box {
+			width: 24px;
+			min-width: 24px;
+			height: 24px;
+		}
+		> .card-header {
+			justify-content: flex-start;
+			.tit {
+				font-size: 14px;
+			}
+		}
+		.message {
+			gap: 0;
+			padding: 12px 16px;
+			box-shadow: none;
+			.tit {
+				font-size: 12px;
+			}
+			.time {
+				@include fw-5(11px);
+				color: var(--dt-gray10);
+				margin-left: auto;
+			}
+			.item {
+				&.text {
+					gap: 2px;
+					.tel {
+						@include fw-6(11px);
+						color: var(--dt-gray11);
+					}
+					.msg {
+						width: 100%;
+						font-size: 11px;
+						line-height: 1.4;
+						color: var(--dt-gray11);
+					}
+				}
+			}
+		}
+	}
+	// 로밍기간 카드
+	&.rmPeriod {
+		padding:16px 20px 20px;
+		gap: 20px;
+		.card-header {
+			display: flex;
+			.item {
+				flex-direction: row;
+				align-items: center;
+				gap: 8px;
+			}
+			.tit {
+				@include fw-5(14px);
+				line-height: 150%;
+				color: var(--dt-primary);
+			}
+			.img-box {
+				width: 24px;
+				min-width: 24px;
+				height: 24px;
+			}
+		}
+		.card-body {
+			align-items: center;
+			gap: 20px;
+			.period-wrap {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				.item {
+					flex-direction: column;
+					align-items: center;
+					.tit {
+						font-weight: 600;
+						line-height: 120%;
+						text-align: center;
+					}
+					.txt {
+						text-align: center;
+					}
+					&.date { // 3월24일(수) + 09:00 
+						gap: 4px;
+					}
+					&.period {
+						position: relative;
+						justify-content: center;
+						width: 72px;
+						max-width: 72px;
+						&::before {
+							content: "";
+							display: inline-block;
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+							left: 0;
+							width: 100%;
+							height: 1px;
+							border: 1px dashed var(--dt-gray09);
+						}
+						.chips-tag {
+							z-index: 1;
+						}
+					}
+				}
+			}
+			.list-wrap {
+				width: 100%;
+				margin-top: 0;
+				padding: 20px 0 0 0;
+				border-top: 1px solid var(--dt-gray06);
+				background-color: transparent;
+				border-radius: unset;
+				.list-box {
+					flex-wrap: nowrap;
+					justify-content: flex-start;
+					align-items: flex-start;
+					padding: 3px 0;
+					border-bottom: none;
+					gap: 12px;
+					&:first-child {
+						padding-top: 0;
+					}
+					&:last-child {
+						padding-bottom: 0;
+					}
+					.head {
+						min-width: 64px;
+						text-align: left;
+						line-height: 150%;
+					}
+					.tail {
+						text-align: left;
+						line-height: 150%;
+						color: var(--dt-gray11);
+						margin-left: 0;
+						max-width: unset;
+						.price {
+							font-weight: 700;
+							color: var(--dt-black);
+						}
+						.info {
+							font-size: 12px;
+						}
+						&.total {
+							display: flex;
+							flex-direction: column;
+							justify-content: flex-start;
+						}
+					}
+				}
+			}
+		}
+		.card-footer {
+			.btn {
+				background-color: var(--dt-gray06);
+				.txt {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+	// 회선 변경 카드
+	&.chngCode {
+		border: 1px solid var(--dt-gray17);
+		box-shadow: none;
+		padding: 16px;
+		.item {
+			flex-direction: row;
+			align-items: center;
+			flex-wrap: wrap;
+			&.text {
+				gap: 4px;
+				.tit {
+					font-size: 16px;
+				}
+				.sub {
+					font-size: 12px;
+					color: var(--dt-gray11);
+				}
+			}
+		}
+		.card-footer .btn {
+			min-width: max-content;
+		}
+	}
+}
+
+
+@media screen and (max-width: 359px) {
+    // 로밍기간 카드
+    .card.rmPeriod {
+        .period-wrap {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}

@@ -1,0 +1,103 @@
+@import '../base/mixin.scss';
+
+.toast-wrap {
+	display: none;
+	position: fixed;
+	left: 0;
+	bottom: 92px;
+	z-index: 9999;
+	width: 100%;
+	padding: 0 20px;
+	&.show {
+		display: block;
+		animation: slideInUp 0.2s ease-out;
+		// animation: toast-in 0.2s ease-out;
+	}
+	// &.hide {
+	//   display: block;
+	//   bottom: -99px;
+	//   transform: translate3d(-50%, 0, 0);
+	//   animation: toast-out 0.2s ease-out;
+	// }
+	.toast {
+		@include flexBox(between, center);
+		background-color: var(--dt-gray16);
+		opacity: .9;
+		border-radius: 36px;
+		padding: 12px 20px;
+		column-gap: 10px;
+		margin: 0 auto;
+		// min-height: 48px;
+		// min-width: 220px; //260px 이하에서 줄어들지 않는 이슈로 주석처리
+		max-width: 320px;
+		box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.04);
+		&:has(.btn-util.hidden) {
+			justify-content: center;
+			.toast-txt {
+				width: 100%;
+				text-align: center;
+			}
+		}
+	
+		.toast-txt {
+			@include fw-5(16px);
+			line-height: 150%;
+			width: 100%;
+			// max-width: 240px;
+			max-width: calc(100% - 34px);
+			color: var(--dt-white);
+			padding: 0 5px;
+			&:has(+ .hidden) {
+				max-width:100%;
+			}
+		}
+		.btn-util {
+			display: inline-block;
+			width: 24px;
+			min-width: 24px;
+			height: 24px;
+			// margin-left: auto;
+			background-image: url(../images/icon/ic-toast-close.svg);
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-position: center center;
+		}
+	}
+}
+/* 해상도 변경 */
+// @media (max-width: 359px) {
+// 	.toast {
+//     min-width: 240px;
+// 	}
+// }
+/* toast animation */
+// @keyframes toast-in {
+// 	0% {
+// 			transform: translate3d(-50%, 0, 0);
+// 			opacity: 0;
+// 			bottom: 0;
+// 			visibility: visible
+// 	}
+// 	to {
+// 		opacity: 1;
+// 		bottom: 92px;
+// 		transform: translate3d(-50%, 0, 0);
+// 	}
+// }
+
+// @keyframes toast-out {
+// 	0% {
+// 		opacity: 1;
+// 		bottom: 92px;
+// 		transform: translate3d(-50%, 0, 0);
+// 		visibility: visible
+// 	}
+// 	to {
+// 		opacity: 0;
+// 		bottom: 0;
+// 		transform: translate3d(-50%, 0, 0);
+// 		display: none;
+// }
+// }
+
+

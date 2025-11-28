@@ -1,0 +1,194 @@
+@import '../base/mixin';
+.card-group {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);  // 두 열로 구성
+	gap: 8px;  // 카드 사이의 간격
+	grid-auto-rows: 1fr;  // 각 카드의 높이가 동일하게 맞춰지도록 설정
+	&.threeby {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+.counsel {
+	.cont__wrap {
+		// padding-top:48px;
+		padding-bottom:48px;
+		.card {
+			background-color: var(--dt-gray02);
+			box-shadow: none;
+			min-height: 136px;
+			&[role=button] {
+				cursor: pointer;
+				&:active {
+					box-shadow: inset 0 0 0 300px rgba(0, 0, 0, 0.12);
+					.card-body,
+					.card-footer {
+						opacity: 0.6;
+					}
+				}
+			}
+			&.is-selected {
+				box-shadow: inset 0 0 0 300px rgba(0, 0, 0, 0.12);
+				.card-body,
+				.card-footer {
+					opacity: 0.6;
+				}
+			}
+			&.is-disabled {
+				box-shadow: inset 0 0 0 300px rgba(255, 255, 255, 0.6);
+				.card-body,
+				.card-footer {
+					opacity: 0.6;
+				}
+			}
+			&.is-disabled:active {
+				box-shadow: inset 0 0 0 300px rgba(255, 255, 255, 0.6);
+				.card-body,
+				.card-footer {
+					opacity: 0.6;
+				}
+			}
+		}
+		&.cont__wrap-counsel {
+			padding-top:32px;
+			padding-bottom:48px;
+			background-color: var(--dt-gray05);
+			.con__tit-box {
+				flex-direction: column;
+				justify-content: center;
+				text-align: center;
+				gap: 4px;
+				.txt-sub {
+					color: var(--dt-gray11);
+					font-size:14px;
+					line-height:normal;
+				}
+				.tit-head {
+					align-items: center;
+					justify-content: center;
+				}
+			}
+			.card-group {
+				.card {
+					background-color: var(--dt-white);
+					box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.04);
+					gap: 0;
+					&.detail {
+						.text {
+							gap: 2px;
+							.tit {
+								font-size: 14px;
+							}
+							.txt {
+								font-size: 11px;
+							}
+						}
+						.card-footer {
+							justify-content: flex-end;
+							.btn-group {
+								flex: none;
+							}
+						}
+					}
+				}
+			}
+			&:has(.conversion) .card-group {
+				margin-bottom: 48px;
+			}
+		}
+		.txt-head {
+			@include fw-5(14px);
+			color: var(--dt-gray11);
+		}
+		&.accordion-container {
+			.accordion-header {
+				padding: 0;
+				.txt-title {
+					text-align: center;
+				}	
+			}
+			&.open {
+				.accordion-content {
+					display: grid;
+					padding: 0;
+				}
+			}
+		}
+	}
+}
+
+// 음성 ARS 전환, 홈 고객센터 문의 버튼
+.conversion {
+	@include flexBox();
+	border: 1px solid rgba(24, 26, 27, 0.02);
+	border-radius: 8px;
+	background-color: var(--dt-gray17);
+	gap: 0;
+	.btn {
+		border-color: transparent;
+		background-color: var(--dt-gray17);
+		.txt {
+			@include fw-6();
+			color: var(--dt-gray12);
+		}
+	}
+	.divider {
+		display: inline-block;
+		content: "";
+		width: 1px;
+		height: 18px;
+		background-color: var(--dt-gray09);
+		margin: 0 1px;
+	}
+	&.flex-column {
+		border-radius: unset;
+		background-color: transparent;
+		.btn {
+			border-color: rgba(24, 26, 27, 0.02);
+		}
+	}
+	& + .conversion {
+		margin-top: 8px;
+	}
+}
+
+
+
+
+
+@media (max-width: 359px) {
+	.cont__wrap-counsel {
+		.card-group {
+			grid-template-columns: repeat(1, 1fr);
+			.card {
+				align-items: center;
+				flex-direction: row;
+				padding: 16px;
+				gap: 12px;
+				min-height: unset;
+				.card-body {
+					align-items: center;
+					flex-direction: row;
+					gap: 12px;
+				}
+				.text {
+					gap: 0;
+				}
+				.card-footer {
+					margin-top: 0;
+					margin-left: auto;
+				}
+			}
+		}
+	}
+	.conversion {
+		flex-direction: column;
+		background-color: transparent;
+		gap: 8px;
+		.btn {
+			border-color: rgba(24, 26, 27, 0.02);
+		}
+		.divider {
+			display: none;
+		}
+	}
+}

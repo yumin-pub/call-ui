@@ -1,0 +1,235 @@
+@import '../base/mixin';
+/* 
+  popper.js 사용
+*/
+
+.btn-tooltip {// 툴팁버튼
+	width: 24px;
+	height:24px;
+	cursor: pointer;
+	img {
+		width: 18px;
+		transform: translateY(-1px);
+	}
+}
+.tooltip-wrap, .bubble-box { // 툴팁박스
+	display: none;
+    position:absolute;
+	width: max-content;
+	max-width: 220px;
+	background-color: rgba(24, 26, 27, 0.9);
+	border-radius: 8px;
+	padding: 10px;
+	z-index: 10;
+	.txt-wrap {
+		display:inline-block;
+		@include fw-5(12px);
+		color:var(--dt-white);
+		line-height: 18px;
+		letter-spacing: -0.3px;
+		&:has(.ico) {
+			@include flexRow;
+			column-gap:4px;
+			align-items:center;
+		}
+		.ico {
+			align-self: flex-start;
+			display:inline-block;
+			width:16px;
+			min-width:16px;
+			height:16px;
+			background-image: url(../images/icon/ic-info-white.svg);
+			background-repeat:no-repeat;
+			background-size:100%;
+		}
+	}
+} 
+.tooltip-wrap {
+	.txt-wrap:has(.ico) {
+		width:calc(100% - 32px);
+	}
+}
+.bubble-box {
+	max-height:max-content;
+	.txt-wrap:has(.ico) {
+		width:100%;
+		padding-left:6px;
+		padding-right:6px;
+	}
+	&.show {display:block}
+	
+	&.topleft {
+		left:0;
+		.bubble-box-arrow {
+			top:100%;
+			left:14px;
+		}
+	}
+	&.topright {
+		right:0;
+		.bubble-box-arrow {
+			top:100%;
+			right:14px;
+		}
+	}
+	&.topcenter {
+		bottom:calc(100% + 10px);
+		left:50%;transform:translateX(-50%);
+		.bubble-box-arrow {
+			top: 100%;
+			left:50%;transform:translateX(-50%);
+			&::after {
+				background-image: url(../images/icon/tooltip_tail_bottom.svg);
+			}
+		}
+		.txt-wrap {text-align:center;}
+	}
+	&.bttmcenter {
+		top:calc(100% + 10px);
+		left:50%;transform:translateX(-50%);
+		.bubble-box-arrow {
+			top: -8px;
+			left:50%;transform:translateX(-50%);
+			&::after {
+				background-image: url(../images/icon/tooltip_tail_top.svg);
+			}
+		}
+		.txt-wrap {text-align:center;}
+	}
+	.bubble-box-arrow, .bubble-box-arrow:after {
+		position: absolute;
+	}
+	.bubble-box-arrow {
+		display:block;
+		width: 16px;
+		height: 8px;
+	}
+	.bubble-box-arrow::after {
+		content: '';
+		width:100%;height:100%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 100%;
+		background-image: url(../images/icon/tooltip_tail_bottom.svg);
+	}
+}
+.tooltip-inner {
+	@include flexRow;
+	align-items:center;
+	column-gap:8px;
+}
+.tooltip-close {
+	align-self:flex-start;
+	font-size:0;
+	text-indent: -9999px;
+	min-width: 24px;
+	width:24px;height:24px;
+	background-image: url(../images/icon/ic-close24-gray10.svg);
+	background-size: 24px;
+}
+.tooltip-wrap[data-show] { // show hide 조작
+	display: block;
+	div[data-popper-arrow],
+	div[data-popper-arrow]::before { 
+		visibility:visible;
+	}
+}
+div[data-popper-arrow],
+div[data-popper-arrow]::before {
+	visibility:hidden;
+	position: absolute;
+}
+div[data-popper-arrow]::before {
+	content: '';
+	width:100%;height:100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+}
+.tooltip-wrap[data-popper-placement^='top'] div[data-popper-arrow] { // default
+	width: 16px;
+	height: 8px;
+	margin-left:-8px;
+
+	bottom: -8px;
+	&::before {
+		background-image: url(../images/icon/tooltip_tail_bottom.svg);
+	}
+}
+.tooltip-wrap[data-popper-placement^='bottom'] div[data-popper-arrow] {
+	width: 16px;
+	height: 8px;
+	margin-left:-8px;
+
+	top: -8px;
+	&::before {
+		background-image: url(../images/icon/tooltip_tail_top.svg);
+	}
+}
+.tooltip-wrap[data-popper-placement^='right'] div[data-popper-arrow] {
+	width: 8px;
+	height: 16px;
+	margin-top:-8px;
+
+	left: -8px;
+	&::before {
+		background-image: url(../images/icon/tooltip_tail_left.svg);
+	}
+}
+.tooltip-wrap[data-popper-placement^='left'] div[data-popper-arrow] {
+	width: 8px;
+	height: 16px;
+	margin-top:-8px;
+	left:unset;
+	right:-8px;
+	&::before {
+		background-image: url(../images/icon/tooltip_tail_right.svg);
+	}
+}
+
+// 예외 케이스
+.input-control, .chckbox-area, .btn-group {
+	&:has(.bubble-box) {
+		position:relative;
+	}
+	.bubble-box {// chck-group, validation-txt 이랑 동레벨
+		padding:10px 16px;
+		.txt-wrap {
+			width:100%;
+			padding-left:0;
+			padding-right:0;
+		}
+	}
+}
+.error .bubble-box.topleft,
+.error .bubble-box.topright{
+	max-width:max-content;
+	bottom:calc(100% - 16px) !important;
+}
+.chckbox-area .bubble-box.topleft { 
+	bottom:calc(100% -  20px) !important;
+	left:-12px;
+}
+.lunch-toolWrap {
+	.tooltip-wrap[data-popper-placement^='top'] {
+		transform: translate3d(123px, -408px, 0px) !important;
+		div[data-popper-arrow] { // default
+			transform: translate3d(172px, 0px, 0px) !important;
+
+		}
+	}
+}
+
+@media screen and (max-width:359px) {
+	.tooltip-wrap{ // 툴팁박스
+		max-width: 60vw !important;
+	}
+	.bubble-box {
+		max-width:70vw !important;
+		.txt-wrap:has(.ico) {
+			width:100%;
+			padding-left:0;
+			padding-right:0px;
+		}
+	}
+}
